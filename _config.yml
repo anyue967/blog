@@ -108,8 +108,8 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   - type: git
-    repo: https://github.com/anyue967/anyu967.github.io.git
+    repo: https://github.com/anyue967/anyue967github.io.git 
     branch: master
-  - type: gitee
-    repo: https://gitee.com/anyu967/anyue967.git
+  - type: git
+    repo: https://gitee.com/anyu967/anyu967.git
     branch: master

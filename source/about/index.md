@@ -1,8 +1,8 @@
 ---
 title: 关于我
 date: 2019-07-16 16:55:34
+layout: about
 ---
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -24,7 +24,7 @@ date: 2019-07-16 16:55:34
 <h2 class="myh2">
 	<b>我们一路奋战，不是为了改变世界，而是为了不让世界改变我们.</b>
 <h2>
-<i>
+<i >
 	<a class="mya" href="https://anyue967.github.io">From anyue967</a>
 </i>
 <body>
