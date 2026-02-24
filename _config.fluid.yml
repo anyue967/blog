@@ -18,11 +18,11 @@
 
 # 用于浏览器标签的图标
 # Icon for browser tab
-favicon: /img/fluid.png
+favicon: /img/bg/icon.jpg
 
 # 用于苹果设备的图标
 # Icon for Apple touch
-apple_touch_icon: /img/fluid.png
+apple_touch_icon: /img/bg/icon.jpg
 
 # 浏览器标签页中的标题分隔符，效果：文章名 - 站点名
 # Title separator in browser tab, eg: article - site
@@ -63,7 +63,7 @@ code:
       # 在链接中挑选 style 填入
       # Select a style in the link
       # See: https://highlightjs.org/demo/
-      style: "github gist"
+      style: "github dark dimmed"
       style_dark: "dark"
 
     prismjs:
@@ -233,12 +233,13 @@ font:
 
 # 指定自定义 .js 文件路径，支持列表；路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js
 # Specify the path of your custom js file, support list. The path is relative to the source directory, such as `/js/custom.js` corresponding to the directory `source/js/custom.js`
-custom_js: /js/custom.js
-
+custom_js: 
+  - /js/starts.js
+  - /js/typing-effect.js
 # 指定自定义 .css 文件路径，用法和 custom_js 相同
 # The usage is the same as custom_js
-custom_css: /css/custom.css
-
+custom_css: 
+  - /css/macpanel
 # 网页访问统计
 # Analysis of website visitors
 web_analytics:
@@ -348,7 +349,7 @@ iconfont: //at.alicdn.com/t/c/font_1736178_k526ubmyhba.css
 navbar:
   # 导航栏左侧的标题，为空则按 hexo config 中 `title` 显示
   # The title on the left side of the navigation bar. If empty, it is based on `title` in hexo config
-  blog_title: "Fluid"
+  blog_title: "旅行"
 
   # 导航栏毛玻璃特效，实验性功能，可能会造成页面滚动掉帧和抖动，部分浏览器不支持会自动不生效
   # Navigation bar frosted glass special animation. It is an experimental feature
@@ -371,8 +372,17 @@ navbar:
     - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
+    - {
+        key: '收藏',
+        icon: 'iconfont icon-bookmark',
+        submenu: [
+          { key: "导航", link: "/bookmark/", icon: "iconfont icon-map" },
+          { key: "图库", link: "/gallery/", icon: "iconfont icon-image" },
+          { key: "影视", link: "/video/", icon: "iconfont icon-snapchat-fill" }
+        ]
+    }
+    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
-    #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -449,7 +459,8 @@ footer:
     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
-    <div>
+    <a href="https://blog.kevinchu.top/atom.xml" target="_blank" rel="nofollow noopener"><i class="iconfont icon-rss"></i>RSS</a>
+    <div style="font-size: 0.85rem">
         <span id="timeDate">载入天数...</span>
         <span id="times">载入时分秒...</span>
         <script src="/js/duration.js"></script>
@@ -487,7 +498,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: /img/bg/001.png
+  banner_img: /img/bg/003.jpg
 
   # 头图高度，屏幕百分比
   # Height ratio of banner image
@@ -1055,6 +1066,24 @@ links:
       title: "Fluid Repo",
       intro: "主题 GitHub 仓库",
       link: "https://github.com/fluid-dev/hexo-theme-fluid",
+      avatar: "/img/favicon.png"
+    }
+    - {
+      title: "AI Tools",
+      intro: "AI 工具集",
+      link: "https://ai-bot.cn/",
+      avatar: "/img/favicon.png"
+    }
+    - {
+      title: "vidhub",
+      intro: "影视",
+      link: "https://vidhub.link/",
+      avatar: "/img/favicon.png"
+    }
+    - {
+      title: "wallhaven",
+      intro: "壁纸",
+      link: "https://wallhaven.cc/",
       avatar: "/img/favicon.png"
     }
 
