@@ -7,3 +7,7 @@ public/
 .deploy*/
 _multiconfig.yml
 .obsidian/
+_config.yml
+_config.local.yml
+_config.fluid.yml
+_config.fluid.local.yml
