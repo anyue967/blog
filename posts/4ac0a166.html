@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/bg/icon.jpg">
-  <link rel="icon" href="/blog/img/bg/icon.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/icon.jpg">
+  <link rel="icon" href="/img/bg/icon.jpg">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,17 +22,17 @@
     <meta name="description" content="2019-06-11-Linux基础命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux基础配置00">
-<meta property="og:url" content="https://anyu967.github.io/blog/posts/4ac0a166.html">
+<meta property="og:url" content="https://blog.nivago.xyz/posts/4ac0a166.html">
 <meta property="og:site_name" content="旅行の梦">
 <meta property="og:description" content="2019-06-11-Linux基础命令">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://anyu967.github.io/blog/img/bg/006.jpg">
+<meta property="og:image" content="https://blog.nivago.xyz/img/bg/006.jpg">
 <meta property="article:published_time" content="2019-06-11T01:05:00.000Z">
 <meta property="article:modified_time" content="2026-04-23T09:10:20.816Z">
 <meta property="article:author" content="anyu967">
 <meta property="article:tag" content="linux命令">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://anyu967.github.io/blog/img/bg/006.jpg">
+<meta name="twitter:image" content="https://blog.nivago.xyz/img/bg/006.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -62,38 +62,38 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
   
-<link rel="stylesheet" href="/blog/css/macpanel.css">
+<link rel="stylesheet" href="/css/macpanel.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"anyu967.github.io","root":"/blog/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/blog/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"blog.nivago.xyz","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/blog/js/utils.js" ></script>
-  <script  src="/blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
   
-<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/blog/atom.xml" title="旅行の梦" type="application/atom+xml">
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="旅行の梦" type="application/atom+xml">
 </head>
 
 
@@ -106,7 +106,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/blog/">
+    <a class="navbar-brand" href="/">
       <strong>旅行の梦</strong>
     </a>
 
@@ -125,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/" target="_self">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/" target="_self">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/categories/" target="_self">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/" target="_self">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -183,7 +183,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/bookmark/" target="_self">
+                  <a class="dropdown-item" href="/bookmark/" target="_self">
                     <i class="iconfont icon-map"></i>
                     <span>导航</span>
                   </a>
@@ -191,7 +191,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/gallery/" target="_self">
+                  <a class="dropdown-item" href="/gallery/" target="_self">
                     <i class="iconfont icon-image"></i>
                     <span>图库</span>
                   </a>
@@ -199,7 +199,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/video/" target="_self">
+                  <a class="dropdown-item" href="/video/" target="_self">
                     <i class="iconfont icon-snapchat-fill"></i>
                     <span>影视</span>
                   </a>
@@ -213,7 +213,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/links/" target="_self">
+              <a class="nav-link" href="/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
                 <span>友链</span>
               </a>
@@ -225,7 +225,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/about/" target="_self">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -255,7 +255,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -382,7 +382,7 @@ style="color:rgb(255, 0, 255);"><strong>主引导记录占446B</strong></span>�
 <li>为了解决分区不够的问题，可将其中的分区信息指向另外一个分区，称为<strong>扩展分区(扩展分区0扇区)</strong>，在扩展分区里划分逻辑分区，<strong>一块硬盘只能有一个扩展分区，1/2/3/4号只能给主分区，5/6开始为逻辑分区</strong>;</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">dd</span> <span class="hljs-keyword">if</span>=/dev/sda of=MBR bs=1 count=64 skip=446 &amp;&amp; hexdump -C /dev/sda -n 512 <span class="hljs-comment"># 备份分区表:以字节为单位 </span><br><span class="hljs-comment"># 测试: </span><br><span class="hljs-built_in">dd</span> <span class="hljs-keyword">if</span>=/dev/zero of=/dev/sda bs=1 count=64 seek=446 &amp;&amp; <span class="hljs-built_in">dd</span> <span class="hljs-keyword">if</span>=MBR of=/dev/sda bs=1 count=64 seek=446 &amp;&amp; <span class="hljs-built_in">sync</span>  <br></code></pre></td></tr></table></figure>
-<p><img src="/blog/posts/4ac0a166/%E9%A6%96%E6%89%87%E5%8C%BA%E5%9B%BE%E7%A4%BA.png" srcset="/blog/img/loading.gif" lazyload class="" title="[首扇区图示]"> <img src="/blog/posts/4ac0a166/%E9%80%BB%E8%BE%91%E5%88%86%E5%8C%BA.png" srcset="/blog/img/loading.gif" lazyload class="" title="[分区图示]"></p>
+<p><img src="/posts/4ac0a166/%E9%A6%96%E6%89%87%E5%8C%BA%E5%9B%BE%E7%A4%BA.png" srcset="/img/loading.gif" lazyload class="" title="[首扇区图示]"> <img src="/posts/4ac0a166/%E9%80%BB%E8%BE%91%E5%88%86%E5%8C%BA.png" srcset="/img/loading.gif" lazyload class="" title="[分区图示]"></p>
 <h4 id="linux-下的分区方案">Linux 下的分区方案</h4>
 <table>
 <thead>
@@ -414,7 +414,7 @@ style="color:rgb(255, 0, 255);"><strong>主引导记录占446B</strong></span>�
 </tr>
 </tbody>
 </table>
-<img src="/blog/posts/4ac0a166/%E5%88%86%E5%8C%BA%E6%96%B9%E6%A1%88.png" srcset="/blog/img/loading.gif" lazyload class="" title="[分区方案]">
+<img src="/posts/4ac0a166/%E5%88%86%E5%8C%BA%E6%96%B9%E6%A1%88.png" srcset="/img/loading.gif" lazyload class="" title="[分区方案]">
 <h4
 id="rpm红帽软件包管理器-相当于windows-的控制面板的软件管理">RPM:(红帽软件包管理器)
 相当于windows 的控制面板的软件管理 <a id="rpm"></a></h4>
@@ -1336,7 +1336,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/lhm166/articles/660
 </table>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ~]# grep -n /sbin/nologin /etc/passwd<br>  1:bin:x:1:1:bin:/bin:/sbin/nologin  <br>  2:daemon:x:2:2:daemon:/sbin:/sbin/nologin  <br>  3:adm:x:3:4:adm:/var/adm:/sbin/nologin<br></code></pre></td></tr></table></figure>
 <h4 id="find-文件搜索-实用">12.3 find # 文件搜索 实用</h4>
-<img src="/blog/posts/4ac0a166/find.jpg" srcset="/blog/img/loading.gif" lazyload class="" title="[find时间轴]">
+<img src="/posts/4ac0a166/find.jpg" srcset="/img/loading.gif" lazyload class="" title="[find时间轴]">
 <table>
 <thead>
 <tr>
@@ -1687,7 +1687,7 @@ while条件循环语句(while 条件测试操作 do 命令序列 done)</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ShellExample]# vim checkkeys.sh <br>  <span class="hljs-comment">#!/bin/bash  </span><br>  <span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;请输入一个字符，并按Enter键确认：&quot;</span> KEY  <br>  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$KEY</span>&quot;</span> <span class="hljs-keyword">in</span>  <br>  [a-z] | [A-Z])  <br>      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;您输入的是<span class="hljs-variable">$KEY</span>字母。&quot;</span>  <br>      ;;  <br>  [0-9])  <br>      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;您输入的是<span class="hljs-variable">$KEY</span>数字。&quot;</span>  <br>      ;;  <br>  *)  <br>      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;您输入的是空格、功能健或其他控制字符。&quot;</span> <br>      ;; <br>  <span class="hljs-keyword">esac</span>  <br>[root@xy ShellExample]# bash checkkeys.sh  <br>  请输入一个字符，并按Enter键确认：4  <br>  您输入的是4数字。<br></code></pre></td></tr></table></figure>
 <h4 id="计划任务服务程序-一次性长期性计划任务">27. 计划任务服务程序
 (一次性、长期性计划任务) <a id="corntab"></a></h4>
-<img src="/blog/posts/4ac0a166/crontab.png" srcset="/blog/img/loading.gif" lazyload class="" title="[crontab]">
+<img src="/posts/4ac0a166/crontab.png" srcset="/img/loading.gif" lazyload class="" title="[crontab]">
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">1 <span class="hljs-comment"># Example of job definition:  </span><br>2 <span class="hljs-comment"># .---------------- minute (0 - 59)  </span><br>3 <span class="hljs-comment"># |  .------------- hour (0 - 23)  </span><br>4 <span class="hljs-comment"># |  |  .---------- day of month (1 - 31)  </span><br>5 <span class="hljs-comment"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...  </span><br>6 <span class="hljs-comment"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR   sun,mon,tue,wed,thu,fri,sat  </span><br>7 <span class="hljs-comment"># |  |  |  |  |</span><br>8 <span class="hljs-comment"># *  *  *  *  * user-name command to be executed </span><br></code></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ~]# at 23:30  <br>  at &gt; systemctl restart httpd	<span class="hljs-comment">#echo &quot;systemctl restart httpd&quot; |at 23:30 </span><br>  at &gt; 此处按下Ctrl+d 组合键来结束编写任务计划  <br>  job 3 at Mon Apr 27 23:30:00 2017 <br>[root@xy ~]# at -l                 <span class="hljs-comment">#查看一次性计划任务   </span><br>  3 Mon Apr 27 23:30:00 2017 a root<br>[root@xy ~]# at -d 3               <span class="hljs-comment"># 同 atrm</span><br>---<br><br>[root@xy ~]# crontab -e   <br>[root@xy ~]# crontab -l     　<span class="hljs-comment"># crontab - l 查看  crontab -r 删除</span><br>  00 3 * * * <span class="hljs-built_in">cp</span> /var/log/alternatives.log /home/shiyanlou/tmp/$(<span class="hljs-built_in">date</span> +%F)   <br>  25  3  *  * 1,3,5 /usr/bin/tar -czvf backup.tar.gz /home/wwwroot  <br>  分  时 日 月 周    任务     <span class="hljs-comment"># 没有设置的用*占位，表示每  </span><br><br><span class="hljs-comment"># 注:分字段必须有, 每分钟用* 或者 */1表示; 日、周不能同时有,否则会冲突 </span><br><br>[root@xy ~]# whereis <span class="hljs-built_in">rm</span>       　<span class="hljs-comment"># whereis 命令 查询命令所在路径</span><br>  <span class="hljs-built_in">rm</span>: /usr/bin/rm /usr/share/man/man1/rm.1.gz /usr/share/man/man1p/rm.1p.gz  <br>[root@xy ~]# crontab -e  <br>  crontab: installing new crontab  <br>[root@xy ~]# crontab -l  <br>  25 3 * * 1,3,5 /usr/bin/tar -czvf backup-tar.gz /home/wwwroot  <br>  0 1 * * 1-5 /usr/bin/rm -rf /tmp/*<br></code></pre></td></tr></table></figure>
 <h3 id="用户身份">28. 用户身份</h3>
@@ -2129,7 +2129,7 @@ style="color:rgb(255, 0, 255);">需要从默认权限中去掉哪些权限来成
 <blockquote>
 <p>权限 = 默认权限 - umask</p>
 </blockquote>
-<img src="/blog/posts/4ac0a166/umask.jpg" srcset="/blog/img/loading.gif" lazyload class="" title="[umask]">
+<img src="/posts/4ac0a166/umask.jpg" srcset="/img/loading.gif" lazyload class="" title="[umask]">
 <h4 id="文件系统命令补充">文件系统命令补充：</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">dumpe2fs -h /dev/sd*	<span class="hljs-comment">#查看分区概览信息</span><br>fdisk -l	<span class="hljs-comment">#显示磁盘信息</span><br>fdisk -t	<span class="hljs-comment">#更改分区系统的ID</span><br>fsck -y /dev/sdb1	<span class="hljs-comment">#文件系统修复命令</span><br><br>partx -a /dev/DEVICE   partx -d --nr number /dev/device	<span class="hljs-comment">#CentOS6</span><br>partprobe /dev/DEVICE	<span class="hljs-comment">#CentOS5,7</span><br></code></pre></td></tr></table></figure>
 <h4 id="相关解压压缩命令">相关解压压缩命令</h4>
@@ -2179,7 +2179,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/menlsh/archive/2012
 <p>🔗:<a
 target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/6868694.html">Shell脚本的颜色样式及属性控制</a><br />
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PS1</span><br>vim /etc/profile.d/color.sh<br>PS1=<span class="hljs-string">&quot;\[\033[1;5;41;33m\][\u@\h\W\t\!]\\$\[\033[0m\]&quot;</span><br>\u 当前用户  \H 主机名  \h 主机名简称  \w 当前工作目录<br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;\e[字体格式;背景色;前景色m字符串\e[0m&quot;</span>  <span class="hljs-comment"># \e[0m 关闭所有属性</span><br></code></pre></td></tr></table></figure></p>
-<img src="/blog/posts/4ac0a166/colorBash.jpg" srcset="/blog/img/loading.gif" lazyload class="" title="[PS1]">
+<img src="/posts/4ac0a166/colorBash.jpg" srcset="/img/loading.gif" lazyload class="" title="[PS1]">
 <h5 id="总结1位数表示字体显示格式">总结：1位数表示字体显示格式</h5>
 <table>
 
@@ -2261,7 +2261,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
     
       <span class="category-chain">
         
-  <a href="/blog/categories/linux/" class="category-chain-item">linux</a>
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
   
   
 
@@ -2276,7 +2276,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/linux%E5%91%BD%E4%BB%A4/" class="print-no-link">#linux命令</a>
+        <a href="/tags/linux%E5%91%BD%E4%BB%A4/" class="print-no-link">#linux命令</a>
       
     </div>
   
@@ -2289,7 +2289,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
   <div class="license-box my-3">
     <div class="license-title">
       <div>Linux基础配置00</div>
-      <div>https://anyu967.github.io/blog/posts/4ac0a166.html</div>
+      <div>https://blog.nivago.xyz/posts/4ac0a166.html</div>
     </div>
     <div class="license-meta">
       
@@ -2333,7 +2333,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/posts/296e7ad4.html" title="Linux服务配置01">
+                      <a href="/posts/296e7ad4.html" title="Linux服务配置01">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Linux服务配置01</span>
                         <span class="visible-mobile">上一篇</span>
@@ -2343,7 +2343,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/posts/b83b20cb.html" title="关于开源协议">
+                      <a href="/posts/b83b20cb.html" title="关于开源协议">
                         <span class="hidden-mobile">关于开源协议</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -2447,7 +2447,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <a href="https://blog.kevinchu.top/atom.xml" target="_blank" rel="nofollow noopener"><i class="iconfont icon-rss"></i>RSS</a> <div style="font-size: 0.85rem"> <span>本网站由</span> <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow noopener" ><img src="/img/bg/upyun.png" srcset="/blog/img/loading.gif" lazyload alt="upyun" width="55px" height="30px" style="fill: currentColor;"></a> <span>提供CDN加速/云存储服务<span> </div> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <a href="https://blog.kevinchu.top/atom.xml" target="_blank" rel="nofollow noopener"><i class="iconfont icon-rss"></i>RSS</a> <div style="font-size: 0.85rem"> <span>本网站由</span> <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow noopener" ><img src="/img/bg/upyun.png" srcset="/img/loading.gif" lazyload alt="upyun" width="55px" height="30px" style="fill: currentColor;"></a> <span>提供CDN加速/云存储服务<span> </div> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
     </div>
   
   
@@ -2496,7 +2496,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
         >
           
             <span style="visibility: hidden; width: 0">|</span>
-            <img src="/blog/img/police_beian.png" srcset="/blog/img/loading.gif" lazyload alt="police-icon"/>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
           
           <span>陕公网安备61058102000324号</span>
         </a>
@@ -2526,8 +2526,8 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/blog/js/events.js" ></script>
-<script  src="/blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -2549,7 +2549,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
 
 
   
-    <script  src="/blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -2648,7 +2648,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -2656,14 +2656,14 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/wt645631686/p/68686
 
 
   
-<script src="/blog/js/starts.js"></script>
-<script src="/blog/js/typing-effect.js"></script>
+<script src="/js/starts.js"></script>
+<script src="/js/typing-effect.js"></script>
 
 
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   

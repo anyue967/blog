@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/bg/icon.jpg">
-  <link rel="icon" href="/blog/img/bg/icon.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/icon.jpg">
+  <link rel="icon" href="/img/bg/icon.jpg">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,18 +22,18 @@
     <meta name="description" content="2019-06-12-Zabbix">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 监控">
-<meta property="og:url" content="https://anyu967.github.io/blog/posts/48810125.html">
+<meta property="og:url" content="https://blog.nivago.xyz/posts/48810125.html">
 <meta property="og:site_name" content="旅行の梦">
 <meta property="og:description" content="2019-06-12-Zabbix">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://anyu967.github.io/blog/img/bg/002.jpg">
+<meta property="og:image" content="https://blog.nivago.xyz/img/bg/002.jpg">
 <meta property="article:published_time" content="2019-06-12T02:30:30.000Z">
 <meta property="article:modified_time" content="2026-04-24T10:16:13.725Z">
 <meta property="article:author" content="anyu967">
 <meta property="article:tag" content="Devops">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://anyu967.github.io/blog/img/bg/002.jpg">
+<meta name="twitter:image" content="https://blog.nivago.xyz/img/bg/002.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -63,38 +63,38 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
   
-<link rel="stylesheet" href="/blog/css/macpanel.css">
+<link rel="stylesheet" href="/css/macpanel.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"anyu967.github.io","root":"/blog/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/blog/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"blog.nivago.xyz","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/blog/js/utils.js" ></script>
-  <script  src="/blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
   
-<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/blog/atom.xml" title="旅行の梦" type="application/atom+xml">
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="旅行の梦" type="application/atom+xml">
 </head>
 
 
@@ -107,7 +107,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/blog/">
+    <a class="navbar-brand" href="/">
       <strong>旅行の梦</strong>
     </a>
 
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/" target="_self">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/" target="_self">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/categories/" target="_self">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/" target="_self">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -184,7 +184,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/bookmark/" target="_self">
+                  <a class="dropdown-item" href="/bookmark/" target="_self">
                     <i class="iconfont icon-map"></i>
                     <span>导航</span>
                   </a>
@@ -192,7 +192,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/gallery/" target="_self">
+                  <a class="dropdown-item" href="/gallery/" target="_self">
                     <i class="iconfont icon-image"></i>
                     <span>图库</span>
                   </a>
@@ -200,7 +200,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/video/" target="_self">
+                  <a class="dropdown-item" href="/video/" target="_self">
                     <i class="iconfont icon-snapchat-fill"></i>
                     <span>影视</span>
                   </a>
@@ -214,7 +214,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/links/" target="_self">
+              <a class="nav-link" href="/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
                 <span>友链</span>
               </a>
@@ -226,7 +226,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/about/" target="_self">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -256,7 +256,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -423,7 +423,7 @@ Protocol)</li>
 <li><strong>收集数据</strong>：C/S (脚本)、SNMP</li>
 </ul>
 <h3 id="cacti-监控平台">2. Cacti 监控平台</h3>
-<img src="/blog/posts/48810125/Cacti.png" srcset="/blog/img/loading.gif" lazyload class="" title="[Cacti]">
+<img src="/posts/48810125/Cacti.png" srcset="/img/loading.gif" lazyload class="" title="[Cacti]">
 <h4 id="cacti-原理">2.1 Cacti 原理</h4>
 <blockquote>
 <p><strong>SNMP(收集数据)</strong> –&gt;<strong>RRD Tool(绘图)</strong>
@@ -437,7 +437,7 @@ Protocol)</li>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ~]# yum -y install net-snmp net-snmp-utils net-snmp-libs lm_sensors    <br>[root@xy ~]# vim /etc/snmpd.conf  <br>  com2sec notConfigUser   default public123<br>  view all include .1  <br>  <span class="hljs-comment">#       group   context sec.model   sec.level   prefix  read        write   notif   </span><br>  access  notConfigGroup  <span class="hljs-string">&quot;&quot;</span>  any noauth          exact   all  none    none  <br>[root@xy ~]# service snmpd start  <br>[root@xy ~]# snmpwalk -v 2c -c public123 10.10.10.12 tcp  <span class="hljs-comment"># -c 共同体名称(组号)</span><br>  <span class="hljs-comment"># V1 版 简单，高效，不支持加密及身份认证  </span><br>  <span class="hljs-comment"># V2 版 身份认证  </span><br>  <span class="hljs-comment"># V3 版 加密</span><br>[runct@www html]# php /var/www/html/cacti/poller.php<br>[root@www html]# su -cacti <br>[runct@xy ~]# crontab -e <br>  */5   *   *   *   *   /usr/bin/php    /var/www/html/cacti/poller.php &amp;&gt;/dev/null   <br>[runct@xy ~]# service crond restart  <br>[root@xy cacti-plugin]# tar -xzvf cacti-plugin-0.8.7-PA-v2.8.tar.gz  <br>[root@xy cacti-plugin-arch]# mysql -uroot -p cactidb &lt; pa.aql  <br>[root@xy www cacti]# patch -p1 -N &lt; /root/cacti-plugin/cacti-plugin-arch/cacti-plugin-0.8.7g-PA-v2.8.diff <br><br><span class="hljs-comment"># 启用插件管理器, 下载插件复制到 /var/www/html/cacti/plugins并还原数据库, 用于0.8.7，8  </span><br><span class="hljs-comment"># 1.2.6版本集成了插件管理器  </span><br></code></pre></td></tr></table></figure>
 <h3 id="nagios-监控平台">2. Nagios 监控平台</h3>
 <h4 id="nagios-原理">2.1 Nagios 原理</h4>
-<img src="/blog/posts/48810125/Nagios.png" srcset="/blog/img/loading.gif" lazyload class="" title="[Nagios原理]">
+<img src="/posts/48810125/Nagios.png" srcset="/img/loading.gif" lazyload class="" title="[Nagios原理]">
 <h4 id="nagios-构建">2.2 Nagios 构建</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ~]# yum -y install httpd php php-cli php-mysql gcc glibc glibc-common gd gd-devel net-snmp openssl-devel wget unzip    <br>[root@xy mnt cdrom]# yum -y insatall *gd*   <span class="hljs-comment"># 在光盘Package里找 *gd* 安装    </span><br>[root@xy ~]# groupadd nagcmd                <span class="hljs-comment"># 必须  </span><br>[root@xy ~]# useradd -m nagios              <span class="hljs-comment"># 必须  </span><br>[root@xy ~]# usermod -a -G nagcmd nagios  <br>[root@xy ~]# usermod -a -G nagcmd apache   <span class="hljs-comment"># 把Apache添加到 nagcmd 组  </span><br>[root@xy ~]# mount -o loop nagios.iso /mnt/iso <br>[root@xy ~]# <span class="hljs-built_in">cp</span> -a /mnt/iso/* . <br>[root@xy ~]# tar -xzvf nagios-3.1.2.tar.gz  <br>[root@xy nagios-3.1.2]# ./configure --with-command-group=nagcmd --enable-event-broker  <span class="hljs-comment"># 开启数据库选项  </span><br>[root@xy nagios-3.1.2]# make all  <br>[root@xy nagios-3.1.2]# make install  <br>[root@xy nagios-3.1.2]# make install-init    <span class="hljs-comment"># - This installs the init script in /etc/rc.d/init.d  </span><br>[root@xy nagios-3.1.2]# make install-config  <span class="hljs-comment"># - This installs and configures permissions on the</span><br>  directory <span class="hljs-keyword">for</span> holding the external <span class="hljs-built_in">command</span> file  <br>[root@xy nagios-3.1.2]# make install-commandmode  <span class="hljs-comment"># - This installs sample config files in /usr/local/nagios/etc  </span><br>[root@xy nagios-3.1.2]# vim /usr/local/nagios/etc/objects/contacts.cfg <br>  email   nagios@localhost    <span class="hljs-comment"># 邮件地址</span><br>[root@xy nagios-3.1.2]# make install-webconf  <br>[root@xy nagios-3.1.2]# vim /etc/httpd/conf.d/nagios.conf <br>[root@xy nagios-3.1.2]# htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin  <br><br>[root@xy ~]# tar -xzvf nagios-plugins-1.4.15.tar.gz <br>[root@xy nagios-plugins-1.4.15]# ./configure --with-nagios-user=nagios \<br>  --with-nagios-group=nagios --with-mysql \<br>  --enable-perl-modules  <br>[root@xy nagios-plugins-1.4.15]# make all &amp;&amp;  make install  <br>[root@xy nagios-plugins-1.4.15]# chkconfig --add nagios  <br>[root@xy nagios-plugins-1.4.15]# chkconfig nagios on <br>[root@xy nagios-plugins-1.4.15]# /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg  <span class="hljs-comment"># 检测   </span><br>[root@xy nagios-plugins-1.4.15]# service nagios start  <br>[root@xy nagios-3.1.2]# systemctl restart httpd  <br></code></pre></td></tr></table></figure>
 <h4 id="nagios-添加监控主机">2.3 Nagios 添加监控主机</h4>
@@ -458,10 +458,10 @@ Protocol)</li>
 添加监控主机 / 自动发现 10.10.10.12</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ~]# yum install zabbix-sender zabbix-agent-3.2.11-1.el7.x86_64.rpm  <span class="hljs-comment"># 被监控服务器</span><br>[root@xy ~]# service httpd start<br>[root@xy ~]# <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello,HTML~&quot;</span> &gt;&gt; /var/www/html/index.html  <br>[root@xy ~]# curl localhost<br>[root@xy ~]# vim /etc/zabbix/zabbix_agentd.conf  <br>  <span class="hljs-comment">####### GENRAL PARAMETERS</span><br>  PidFile=/var/run/zabbix/zabbix_agent.pid<br>  <span class="hljs-comment"># LogType=file</span><br>  LogFile=/tmp/zabbix_agentd.log<br>  <span class="hljs-comment">####### Passive checks related</span><br>  <span class="hljs-comment">####### Active checks related </span><br>  Server=10.10.10.11     <span class="hljs-comment"># zabbix-server IP</span><br>  ServerActive=10.10.10.11  <br>  Hostname=10.10.10.12  <br>[root@xy ~]# service zabbix-agent start  <br>[root@xy ~]# chkconfig zabbix-agent on   <br>[root@xy ~]# netstat -anptl | grep :10050   <br>[root@xy ~]# yum -y install zabbix-sender zabbix-agent-3.2.1-1.el6.x86_64.rpm  <span class="hljs-comment"># 10.10.10.13 </span><br>[root@xy ~]# vim /etc/zabbix/zabbix_agentd.conf<br>  Server=10.10.10.11  <br>  ServerActive=10.10.10.11  <br>  Hostname=10.10.10.13<br></code></pre></td></tr></table></figure>
 <p><strong>先创建动作–&gt; 自动发现</strong><br />
-<img src="/blog/posts/48810125/zabbix-autofind.png" srcset="/blog/img/loading.gif" lazyload class="" title="[zabbix-autofind]"><br />
-<img src="/blog/posts/48810125/zabbix-autofind1.png" srcset="/blog/img/loading.gif" lazyload class="" title="[zabbix-autofind1]"><br />
-<img src="/blog/posts/48810125/zabbix-autofind2.png" srcset="/blog/img/loading.gif" lazyload class="" title="[zabbix-autofind2]"><br />
-<img src="/blog/posts/48810125/zabbix-autofind3.png" srcset="/blog/img/loading.gif" lazyload class="" title="[zabbix-autofind3]"></p>
+<img src="/posts/48810125/zabbix-autofind.png" srcset="/img/loading.gif" lazyload class="" title="[zabbix-autofind]"><br />
+<img src="/posts/48810125/zabbix-autofind1.png" srcset="/img/loading.gif" lazyload class="" title="[zabbix-autofind1]"><br />
+<img src="/posts/48810125/zabbix-autofind2.png" srcset="/img/loading.gif" lazyload class="" title="[zabbix-autofind2]"><br />
+<img src="/posts/48810125/zabbix-autofind3.png" srcset="/img/loading.gif" lazyload class="" title="[zabbix-autofind3]"></p>
 <h4 id="zabbix-nginx-并发监控自定义脚本功能-10.10.10.12">3.6 Zabbix
 Nginx 并发监控(自定义脚本功能) 10.10.10.12</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy nginx-1.2.6]# yum -y install pcre pcre-devel zlib zlib-devel  <br>[root@xy nginx-1.2.6]# ./configure --<span class="hljs-built_in">help</span> | grep status  <span class="hljs-comment"># 查询模块  </span><br>[root@xy nginx-1.2.6]# useradd -s /sbin/nologin -M nginx  <br>[root@xy nginx-1.2.6]# ./configure --prefix=/usr/local/nginx --user=nginx --group=nginx --with-htttp_stub_status_module<br>[root@xy nginx-1.2.6]# make &amp;&amp; make install  <br>[root@xy nginx-1.2.6]# <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;123&quot;</span> &gt;&gt; /usr/local/nginx/html/index.html <br>[root@xy nginx-1.2.6]# /usr/local/nginx/sbin/nginx<br>[root@xy nginx-1.2.6]# vim /usr/local/nginx/conf/nginx.conf  <br>  location    /nginx-status &#123;<br>      stub_status on;<br>  &#125;<br>[root@xy nginx-1.2.6]# /usr/local/nginx/sbin/nginx -t  <br>[root@xy nginx-1.2.6]# <span class="hljs-built_in">kill</span> -HUP $(<span class="hljs-built_in">cat</span> /usr/local/nginx/logs/nginx.pid)<br>  <span class="hljs-comment">#!/bin/bash</span><br>  <span class="hljs-comment"># nginx_status.sh</span><br>  <span class="hljs-comment"># Active connections: 3</span><br>  <span class="hljs-comment"># server accepts handle requests</span><br>  <span class="hljs-comment">#   4   4   5</span><br>  <span class="hljs-comment"># Reading: 1  Writing: 1  Waiting: 1  </span><br><br>  HOST=<span class="hljs-string">&quot;10.10.10.12&quot;</span><br>  PORT=<span class="hljs-string">&quot;80&quot;</span><br>  <span class="hljs-comment"># 检测 nginx 进程是否存在  </span><br>  <span class="hljs-keyword">function</span> ping &#123;<br>      /sbin/pidof nginx | <span class="hljs-built_in">wc</span> -l<br>  &#125;<br>  <span class="hljs-comment"># 检测 nginx 性能</span><br>  <span class="hljs-keyword">function</span> active &#123;<br>      /usr/bin/curl <span class="hljs-string">&quot;http://<span class="hljs-variable">$HOST</span>:<span class="hljs-variable">$PORT</span>/ngx_status&quot;</span> 2&gt;/dev/null | grep <span class="hljs-string">&#x27;Active&#x27;</span> | awk <span class="hljs-string">&#x27;&#123;print $NF&#125;&#x27;</span><br>  &#125;<br>  <span class="hljs-keyword">function</span> reading &#123;<br>      /usr/bin/curl <span class="hljs-string">&quot;http://<span class="hljs-variable">$HOST</span>:<span class="hljs-variable">$PORT</span>/ngx_status&quot;</span> 2&gt;/dev/null | grep <span class="hljs-string">&#x27;Reading&#x27;</span> | awk <span class="hljs-string">&#x27;&#123;print $2&#125;&#x27;</span><br>  &#125;<br>  <span class="hljs-keyword">function</span> writing &#123;<br>      /usr/local/curl <span class="hljs-string">&quot;http://<span class="hljs-variable">$HOST</span>:<span class="hljs-variable">$PORT</span>/ngx_status&quot;</span> 2&gt;/dev/null | grep <span class="hljs-string">&#x27;Writing&#x27;</span> | awk <span class="hljs-string">&#x27;&#123;print $4&#125;&#x27;</span><br>  &#125;<br>  <span class="hljs-keyword">function</span> waiting &#123;<br>      /usr/local/curl <span class="hljs-string">&quot;http://<span class="hljs-variable">$HOST</span>:<span class="hljs-variable">$PORT</span>/ngx_status&quot;</span> 2&gt;/dev/null | grep <span class="hljs-string">&#x27;waiting&#x27;</span> | awk <span class="hljs-string">&#x27;&#123;print $6&#125;&#x27;</span><br>  &#125;<br>  <span class="hljs-keyword">function</span> accepts &#123;<br>      /usr/local/curl <span class="hljs-string">&quot;http://<span class="hljs-variable">$HOST</span>:<span class="hljs-variable">$PORT</span>/ngx_status&quot;</span> 2&gt;/dev/null | awk NR==3 | awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span><br>  &#125;<br>  <span class="hljs-keyword">function</span> handle &#123;<br>      /usr/local/curl <span class="hljs-string">&quot;http://<span class="hljs-variable">$HOST</span>:<span class="hljs-variable">$PORT</span>/ngx_status&quot;</span> 2&gt;/dev/null | awk NR==3 | awk <span class="hljs-string">&#x27;&#123;print $2&#125;&#x27;</span><br>  &#125;<br>  <span class="hljs-keyword">function</span> requests &#123;<br>      /usr/local/curl <span class="hljs-string">&quot;http://<span class="hljs-variable">$HOST</span>:<span class="hljs-variable">$PORT</span>/ngx_status&quot;</span> 2&gt;/dev/null | awk NR==3 | awk <span class="hljs-string">&#x27;&#123;print $3&#125;&#x27;</span><br>  &#125;    <br>  <span class="hljs-comment"># 执行 function </span><br>  <span class="hljs-variable">$1</span><br>  %s/ngx_status/nginx_status/g<br>[root@xy nginx-1.2.6]# <span class="hljs-built_in">chmod</span> a+x nginx-status.sh  <br>[root@xy nginx-1.2.6]# <span class="hljs-built_in">mv</span> nginx-status.sh /etc/zabbix/zabbix_agentd.d/ <br>[root@xy ~]# vim /etc/zabbix/zabbix_agentd.conf  ✔<br>  UnsafeUserParameter=1  <br>  UserParameter=nginx.status[*],/etc/zabbix/zabbix_agentd.d/nginx-status.sh <span class="hljs-variable">$1</span>  <br>[root@xy ~]# service zabbix-agent restart<br>[root@xy ~]# yum -y install zabbix-get      <span class="hljs-comment"># 10.10.10.11 </span><br>[root@xy ~]# zabbix_get -s 10.10.10.12 -k <span class="hljs-string">&#x27;nginx.status[requests]&#x27;</span>  <br></code></pre></td></tr></table></figure>
@@ -470,18 +470,18 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
 <h4 id="zabbix-web场景组合图">3.7 Zabbix Web场景、组合图</h4>
 <p><strong>监控主机–&gt; 创建应用集–&gt; 创建web场景–&gt;
 创建触发器</strong><br />
-<img src="/blog/posts/48810125/zabbix-web%E5%9C%BA%E6%99%AF.png" srcset="/blog/img/loading.gif" lazyload class="" title="[zabbix-web场景]"><br />
-<img src="/blog/posts/48810125/zabbix-web%E5%9C%BA%E6%99%AF1.png" srcset="/blog/img/loading.gif" lazyload class="" title="[zabbix-web场景1]"></p>
+<img src="/posts/48810125/zabbix-web%E5%9C%BA%E6%99%AF.png" srcset="/img/loading.gif" lazyload class="" title="[zabbix-web场景]"><br />
+<img src="/posts/48810125/zabbix-web%E5%9C%BA%E6%99%AF1.png" srcset="/img/loading.gif" lazyload class="" title="[zabbix-web场景1]"></p>
 <p><strong>创建聚合图形–&gt; 编辑聚合图形–&gt; 添加组件</strong><br />
-<img src="/blog/posts/48810125/zabbix-%E8%81%9A%E5%90%88%E5%9B%BE%E5%BD%A2.png" srcset="/blog/img/loading.gif" lazyload class="" title="[zabbix-聚合图形]"><br />
-<img src="/blog/posts/48810125/zabbix-%E8%81%9A%E5%90%88%E5%9B%BE%E5%BD%A21.png" srcset="/blog/img/loading.gif" lazyload class="" title="[zabbix-聚合图形1]"></p>
+<img src="/posts/48810125/zabbix-%E8%81%9A%E5%90%88%E5%9B%BE%E5%BD%A2.png" srcset="/img/loading.gif" lazyload class="" title="[zabbix-聚合图形]"><br />
+<img src="/posts/48810125/zabbix-%E8%81%9A%E5%90%88%E5%9B%BE%E5%BD%A21.png" srcset="/img/loading.gif" lazyload class="" title="[zabbix-聚合图形1]"></p>
 <h4 id="zabbix-报警设置管理-报警媒介类型-创建媒体类型">3.8 Zabbix
 报警设置(管理–&gt; 报警媒介类型–&gt; 创建媒体类型)</h4>
-<img src="/blog/posts/48810125/%E9%A1%B5%E9%9D%A2%E8%AD%A6%E5%91%8A.png" srcset="/blog/img/loading.gif" lazyload class="" title="[页面警告]">
+<img src="/posts/48810125/%E9%A1%B5%E9%9D%A2%E8%AD%A6%E5%91%8A.png" srcset="/img/loading.gif" lazyload class="" title="[页面警告]">
 <h5 id="邮件报警功能脚本指定路径查看-etczabbixzabbix_server.conf">3.8.1
 邮件报警功能（脚本指定路径查看: /etc/zabbix/zabbix_server.conf）</h5>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br>to=<span class="hljs-variable">$1</span><br>subject=<span class="hljs-variable">$2</span><br>context=<span class="hljs-variable">$3</span><br><span class="hljs-comment">#url=$4</span><br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;<span class="hljs-variable">$context</span>&quot;</span> |mail -s <span class="hljs-string">&quot;<span class="hljs-variable">$subject</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$to</span>&quot;</span><br><br>vim /etc/mail.rc<br><span class="hljs-built_in">set</span> from=发件邮箱<br><span class="hljs-built_in">set</span> smtp=smtp服务器<br><span class="hljs-built_in">set</span> smtp-auth-user=发件人邮箱账户<br><span class="hljs-built_in">set</span> smtp-auth-password=发件人邮箱账户密码<br><span class="hljs-built_in">set</span> smtp-auth=login<br></code></pre></td></tr></table></figure>
-<img src="/blog/posts/48810125/mail.png" srcset="/blog/img/loading.gif" lazyload class="" title="[zabbix_mail]">
+<img src="/posts/48810125/mail.png" srcset="/img/loading.gif" lazyload class="" title="[zabbix_mail]">
 <blockquote>
 <p>注意: 若某个zabbix
 用户也想使用邮箱媒介报警，则需要在<code>管理--&gt; 用户--&gt; 报警媒介</code>中添加</p>
@@ -500,8 +500,8 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
 <li><p>信息改为: <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css">告警主机:&#123;HOSTNAME1&#125;<br>告警时间:&#123;EVENT<span class="hljs-selector-class">.DATE</span>&#125; &#123;EVENT<span class="hljs-selector-class">.TIME</span>&#125;<br>告警等级:&#123;TRIGGER<span class="hljs-selector-class">.SEVERITY</span>&#125;<br>告警信息:&#123;TRIGGER<span class="hljs-selector-class">.NAME</span>&#125;<br>告警项目:&#123;TRIGGER<span class="hljs-selector-class">.KEY1</span>&#125;<br>问题详情:&#123;<span class="hljs-selector-tag">TIME</span><span class="hljs-selector-class">.NAME</span>&#125;:&#123;<span class="hljs-selector-tag">TIME</span><span class="hljs-selector-class">.VALUE</span>&#125;<br>当前状态:&#123;TRIGGER<span class="hljs-selector-class">.STATUS</span>&#125;:&#123;<span class="hljs-selector-tag">TIME</span><span class="hljs-selector-class">.VALUE1</span>&#125;<br>事件 ID:&#123;EVENT<span class="hljs-selector-class">.ID</span>&#125;<br></code></pre></td></tr></table></figure></p></li>
 </ul></li>
 </ul>
-<img src="/blog/posts/48810125/%E9%92%89%E9%92%89%E8%AD%A6%E5%91%8A.png" srcset="/blog/img/loading.gif" lazyload class="" title="[钉钉警告]">
-<img src="/blog/posts/48810125/%E9%92%89%E9%92%89%E8%AD%A6%E5%91%8A1.png" srcset="/blog/img/loading.gif" lazyload class="" title="[钉钉警告1]">
+<img src="/posts/48810125/%E9%92%89%E9%92%89%E8%AD%A6%E5%91%8A.png" srcset="/img/loading.gif" lazyload class="" title="[钉钉警告]">
+<img src="/posts/48810125/%E9%92%89%E9%92%89%E8%AD%A6%E5%91%8A1.png" srcset="/img/loading.gif" lazyload class="" title="[钉钉警告1]">
 
                 
               </div>
@@ -520,7 +520,7 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
     
       <span class="category-chain">
         
-  <a href="/blog/categories/Devops-linux-%E4%BA%91%E5%8E%9F%E7%94%9F/" class="category-chain-item">Devops, linux, 云原生</a>
+  <a href="/categories/Devops-linux-%E4%BA%91%E5%8E%9F%E7%94%9F/" class="category-chain-item">Devops, linux, 云原生</a>
   
   
 
@@ -535,9 +535,9 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/linux/" class="print-no-link">#linux</a>
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
       
-        <a href="/blog/tags/Devops/" class="print-no-link">#Devops</a>
+        <a href="/tags/Devops/" class="print-no-link">#Devops</a>
       
     </div>
   
@@ -550,7 +550,7 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
   <div class="license-box my-3">
     <div class="license-title">
       <div>Linux 监控</div>
-      <div>https://anyu967.github.io/blog/posts/48810125.html</div>
+      <div>https://blog.nivago.xyz/posts/48810125.html</div>
     </div>
     <div class="license-meta">
       
@@ -594,7 +594,7 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/posts/f8c8020d.html" title="Linux 集群">
+                      <a href="/posts/f8c8020d.html" title="Linux 集群">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Linux 集群</span>
                         <span class="visible-mobile">上一篇</span>
@@ -604,7 +604,7 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/posts/6fc8eab5.html" title="Markdown">
+                      <a href="/posts/6fc8eab5.html" title="Markdown">
                         <span class="hidden-mobile">Markdown</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -708,7 +708,7 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <a href="https://blog.kevinchu.top/atom.xml" target="_blank" rel="nofollow noopener"><i class="iconfont icon-rss"></i>RSS</a> <div style="font-size: 0.85rem"> <span>本网站由</span> <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow noopener" ><img src="/img/bg/upyun.png" srcset="/blog/img/loading.gif" lazyload alt="upyun" width="55px" height="30px" style="fill: currentColor;"></a> <span>提供CDN加速/云存储服务<span> </div> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <a href="https://blog.kevinchu.top/atom.xml" target="_blank" rel="nofollow noopener"><i class="iconfont icon-rss"></i>RSS</a> <div style="font-size: 0.85rem"> <span>本网站由</span> <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow noopener" ><img src="/img/bg/upyun.png" srcset="/img/loading.gif" lazyload alt="upyun" width="55px" height="30px" style="fill: currentColor;"></a> <span>提供CDN加速/云存储服务<span> </div> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
     </div>
   
   
@@ -757,7 +757,7 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
         >
           
             <span style="visibility: hidden; width: 0">|</span>
-            <img src="/blog/img/police_beian.png" srcset="/blog/img/loading.gif" lazyload alt="police-icon"/>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
           
           <span>陕公网安备61058102000324号</span>
         </a>
@@ -787,8 +787,8 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/blog/js/events.js" ></script>
-<script  src="/blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -810,7 +810,7 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
 
 
   
-    <script  src="/blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -909,7 +909,7 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -917,14 +917,14 @@ target="_blank" rel="noopener" href="https://monitoringartist.github.io/zabbix-s
 
 
   
-<script src="/blog/js/starts.js"></script>
-<script src="/blog/js/typing-effect.js"></script>
+<script src="/js/starts.js"></script>
+<script src="/js/typing-effect.js"></script>
 
 
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   

@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/bg/icon.jpg">
-  <link rel="icon" href="/blog/img/bg/icon.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/icon.jpg">
+  <link rel="icon" href="/img/bg/icon.jpg">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,18 +22,18 @@
     <meta name="description" content="2019-06-11-Linux服务配置01">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux服务配置01">
-<meta property="og:url" content="https://anyu967.github.io/blog/posts/296e7ad4.html">
+<meta property="og:url" content="https://blog.nivago.xyz/posts/296e7ad4.html">
 <meta property="og:site_name" content="旅行の梦">
 <meta property="og:description" content="2019-06-11-Linux服务配置01">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://anyu967.github.io/blog/img/bg/007.jpg">
+<meta property="og:image" content="https://blog.nivago.xyz/img/bg/007.jpg">
 <meta property="article:published_time" content="2019-06-11T01:10:30.000Z">
 <meta property="article:modified_time" content="2026-04-15T07:14:30.127Z">
 <meta property="article:author" content="anyu967">
 <meta property="article:tag" content="Devops">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://anyu967.github.io/blog/img/bg/007.jpg">
+<meta name="twitter:image" content="https://blog.nivago.xyz/img/bg/007.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -63,38 +63,38 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
   
-<link rel="stylesheet" href="/blog/css/macpanel.css">
+<link rel="stylesheet" href="/css/macpanel.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"anyu967.github.io","root":"/blog/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/blog/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"blog.nivago.xyz","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/blog/js/utils.js" ></script>
-  <script  src="/blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
   
-<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/blog/atom.xml" title="旅行の梦" type="application/atom+xml">
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="旅行の梦" type="application/atom+xml">
 </head>
 
 
@@ -107,7 +107,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/blog/">
+    <a class="navbar-brand" href="/">
       <strong>旅行の梦</strong>
     </a>
 
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/" target="_self">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/" target="_self">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/categories/" target="_self">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/" target="_self">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -184,7 +184,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/bookmark/" target="_self">
+                  <a class="dropdown-item" href="/bookmark/" target="_self">
                     <i class="iconfont icon-map"></i>
                     <span>导航</span>
                   </a>
@@ -192,7 +192,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/gallery/" target="_self">
+                  <a class="dropdown-item" href="/gallery/" target="_self">
                     <i class="iconfont icon-image"></i>
                     <span>图库</span>
                   </a>
@@ -200,7 +200,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/video/" target="_self">
+                  <a class="dropdown-item" href="/video/" target="_self">
                     <i class="iconfont icon-snapchat-fill"></i>
                     <span>影视</span>
                   </a>
@@ -214,7 +214,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/links/" target="_self">
+              <a class="nav-link" href="/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
                 <span>友链</span>
               </a>
@@ -226,7 +226,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/about/" target="_self">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -256,7 +256,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -362,7 +362,7 @@
 <li><a href="#apache" target="_self">apache 服务</a></li>
 </ul>
 <h3 id="一切从-开始">1. 一切从 / 开始</h3>
-<img src="/blog/posts/296e7ad4/jiegou.jpg" srcset="/blog/img/loading.gif" lazyload class="" title="[文件系统与目录结构]">
+<img src="/posts/296e7ad4/jiegou.jpg" srcset="/img/loading.gif" lazyload class="" title="[文件系统与目录结构]">
 <table>
 <thead>
 <tr>
@@ -641,7 +641,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/ricklz/p/9378755.ht
 <li>性能提升：读写；</li>
 <li>冗余(容错)能力：无；</li>
 <li>空间利用率：ns(s–&gt; 一块盘利用率)</li>
-<li>至少2块 <img src="/blog/posts/296e7ad4/RAID0.png" srcset="/blog/img/loading.gif" lazyload class="" title="[RAID 0--条带]"></li>
+<li>至少2块 <img src="/posts/296e7ad4/RAID0.png" srcset="/img/loading.gif" lazyload class="" title="[RAID 0--条带]"></li>
 </ul></li>
 <li><strong>RAID
 1(Mirroring)</strong>:数据写到多块硬盘设备上,当某一块硬盘发生故障后,一般会立即以热交换方式来恢复数据的正常使用,但硬盘的使用率却下降了,只有33%左右
@@ -650,7 +650,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/ricklz/p/9378755.ht
 <li>性能提升：写下降，读提升；</li>
 <li>冗余能力：有；</li>
 <li>空间利用率：1/2</li>
-<li>至少2块 <img src="/blog/posts/296e7ad4/raid1.jpg" srcset="/blog/img/loading.gif" lazyload class="" title="[RAID 1--镜像]"></li>
+<li>至少2块 <img src="/posts/296e7ad4/raid1.jpg" srcset="/img/loading.gif" lazyload class="" title="[RAID 1--镜像]"></li>
 </ul></li>
 <li><strong>RAID
 5</strong>:将硬盘设备的数据奇偶校验信息保存到除自身外每一块硬盘设备上,当硬盘出现问题,通过奇偶校验信息来尝试重建损坏的数据
@@ -659,14 +659,14 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/ricklz/p/9378755.ht
 <li>性能提升：读写提升；</li>
 <li>冗余能力：有；</li>
 <li>空间利用率：(n-1)s/n</li>
-<li>至少3块 <img src="/blog/posts/296e7ad4/raid5.jpg" srcset="/blog/img/loading.gif" lazyload class="" title="[RAID 5--校验]"></li>
+<li>至少3块 <img src="/posts/296e7ad4/raid5.jpg" srcset="/img/loading.gif" lazyload class="" title="[RAID 5--校验]"></li>
 </ul></li>
 <li><strong>RAID 10</strong>：RAID10=RAID 1 + RAID 0
 <ul>
 <li>性能提升：读写提升；</li>
 <li>冗余能力：有；</li>
 <li>空间利用率：1/2</li>
-<li>至少4块 <img src="/blog/posts/296e7ad4/raid-10.png" srcset="/blog/img/loading.gif" lazyload class="" title="[RAID 10--综合]"></li>
+<li>至少4块 <img src="/posts/296e7ad4/raid-10.png" srcset="/img/loading.gif" lazyload class="" title="[RAID 10--综合]"></li>
 </ul></li>
 <li>mdadm 命令</li>
 </ul>
@@ -760,7 +760,7 @@ Volume Manager，逻辑卷管理器) <a id="lvm"></a></h3>
 <li>逻辑卷(LV)
 卷组是一个逻辑硬盘，硬盘分区后才可以使用，类似的，从卷组出来的分区为逻辑卷，<strong>可以抽象为分区</strong></li>
 </ul>
-<img src="/blog/posts/296e7ad4/%E9%80%BB%E8%BE%91%E5%8D%B7.png" srcset="/blog/img/loading.gif" lazyload class="" title="[LVM图示]">
+<img src="/posts/296e7ad4/%E9%80%BB%E8%BE%91%E5%8D%B7.png" srcset="/img/loading.gif" lazyload class="" title="[LVM图示]">
 <h4 id="常用lvm部署命令">13.1 常用LVM部署命令</h4>
 <table>
 <thead>
@@ -1062,11 +1062,11 @@ INPUT 规则链加入拒绝192.168.37.5访问本机80端口的策略规则</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ~]# modprobe ip_tables  <br>[root@xy ~]# modprobe<br>[root@xy ~]# vim /etc/sysctl.conf  <span class="hljs-comment"># /proc/sys/net/ipv4/ip_forward  </span><br>[root@xy ~]# net.ipv4.ip_forward  = 1 <br>[root@xy ~]# sysctl -p /etc/sysctl.conf  <br>[root@xy ~]# iptables -F<br><br><span class="hljs-comment">#网关服务器: eth0(192.168.1.1) eth1(218.29.30.31) </span><br><span class="hljs-comment">#局域网客户机(服务器): 192.168.1.6</span><br><span class="hljs-comment">#公网服务器(客户机): 58.63.236.45</span><br></code></pre></td></tr></table></figure>
 <h4 id="snat-转换规则内网访问外网路由后交给snat">16.10 SNAT
 转换规则：内网访问外网(路由后交给SNAT)</h4>
-<img src="/blog/posts/296e7ad4/SNAT.png" srcset="/blog/img/loading.gif" lazyload class="" title="[SNAT转换]">
+<img src="/posts/296e7ad4/SNAT.png" srcset="/img/loading.gif" lazyload class="" title="[SNAT转换]">
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ~]# iptables -t nat -A  POSTROUTING -s 192.168.1.0/24 -o eth1 -j SNAT --to-source 218.29.30.31     <br>[root@xy ~]# iptables -t nat -A  POSTROUTING -s 192.168.1.0/24 -o eth1 -j MASQUERADE  <br>[root@xy ~]# service iptables save<br>[root@xy ~]# vim /etc/sysconfig/iptables  <br>[root@xy~]# tcpdump -i eth0 -nn -X icmp<br></code></pre></td></tr></table></figure>
 <h4 id="dnat-转换规则外网访问内网路由前交给dnat">16.11 DNAT
 转换规则：外网访问内网(路由前交给DNAT)</h4>
-<img src="/blog/posts/296e7ad4/DNAT.png" srcset="/blog/img/loading.gif" lazyload class="" title="[DNAT转换]">
+<img src="/posts/296e7ad4/DNAT.png" srcset="/img/loading.gif" lazyload class="" title="[DNAT转换]">
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ~]# iptables -t nat -A  PREROUTING -d 218.29.30.31 -i eth1 -p tcp --dport 8080 -j DNAT --to-destination 192.168.1.6:80      <br>[root@xy ~]# service iptables save<br>[root@xy ~]# iptables-save &gt; 1.iptables<br>[root@xy ~]# iptables-restore &lt; 1.iptables<br></code></pre></td></tr></table></figure>
 <h4 id="解决windows访问samba服务拒绝的方法">16.12
 解决Windows访问Samba服务拒绝的方法:</h4>
@@ -1531,7 +1531,7 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
     
       <span class="category-chain">
         
-  <a href="/blog/categories/Devops-linux/" class="category-chain-item">Devops, linux</a>
+  <a href="/categories/Devops-linux/" class="category-chain-item">Devops, linux</a>
   
   
 
@@ -1546,9 +1546,9 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/linux/" class="print-no-link">#linux</a>
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
       
-        <a href="/blog/tags/Devops/" class="print-no-link">#Devops</a>
+        <a href="/tags/Devops/" class="print-no-link">#Devops</a>
       
     </div>
   
@@ -1561,7 +1561,7 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
   <div class="license-box my-3">
     <div class="license-title">
       <div>Linux服务配置01</div>
-      <div>https://anyu967.github.io/blog/posts/296e7ad4.html</div>
+      <div>https://blog.nivago.xyz/posts/296e7ad4.html</div>
     </div>
     <div class="license-meta">
       
@@ -1605,7 +1605,7 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/posts/b0672b6e.html" title="Linux服务配置02">
+                      <a href="/posts/b0672b6e.html" title="Linux服务配置02">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Linux服务配置02</span>
                         <span class="visible-mobile">上一篇</span>
@@ -1615,7 +1615,7 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/posts/4ac0a166.html" title="Linux基础配置00">
+                      <a href="/posts/4ac0a166.html" title="Linux基础配置00">
                         <span class="hidden-mobile">Linux基础配置00</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -1719,7 +1719,7 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <a href="https://blog.kevinchu.top/atom.xml" target="_blank" rel="nofollow noopener"><i class="iconfont icon-rss"></i>RSS</a> <div style="font-size: 0.85rem"> <span>本网站由</span> <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow noopener" ><img src="/img/bg/upyun.png" srcset="/blog/img/loading.gif" lazyload alt="upyun" width="55px" height="30px" style="fill: currentColor;"></a> <span>提供CDN加速/云存储服务<span> </div> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <a href="https://blog.kevinchu.top/atom.xml" target="_blank" rel="nofollow noopener"><i class="iconfont icon-rss"></i>RSS</a> <div style="font-size: 0.85rem"> <span>本网站由</span> <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow noopener" ><img src="/img/bg/upyun.png" srcset="/img/loading.gif" lazyload alt="upyun" width="55px" height="30px" style="fill: currentColor;"></a> <span>提供CDN加速/云存储服务<span> </div> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
     </div>
   
   
@@ -1768,7 +1768,7 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
         >
           
             <span style="visibility: hidden; width: 0">|</span>
-            <img src="/blog/img/police_beian.png" srcset="/blog/img/loading.gif" lazyload alt="police-icon"/>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
           
           <span>陕公网安备61058102000324号</span>
         </a>
@@ -1798,8 +1798,8 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/blog/js/events.js" ></script>
-<script  src="/blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -1821,7 +1821,7 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
 
 
   
-    <script  src="/blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -1920,7 +1920,7 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -1928,14 +1928,14 @@ id="基于主机域名192.168.37.10-www.xy.com-bbs.xy.com-tech.xy.com-ˇˇ">2.
 
 
   
-<script src="/blog/js/starts.js"></script>
-<script src="/blog/js/typing-effect.js"></script>
+<script src="/js/starts.js"></script>
+<script src="/js/typing-effect.js"></script>
 
 
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   

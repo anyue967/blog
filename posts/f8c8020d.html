@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/bg/icon.jpg">
-  <link rel="icon" href="/blog/img/bg/icon.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/icon.jpg">
+  <link rel="icon" href="/img/bg/icon.jpg">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,18 +22,18 @@
     <meta name="description" content="2019-06-12-集群">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 集群">
-<meta property="og:url" content="https://anyu967.github.io/blog/posts/f8c8020d.html">
+<meta property="og:url" content="https://blog.nivago.xyz/posts/f8c8020d.html">
 <meta property="og:site_name" content="旅行の梦">
 <meta property="og:description" content="2019-06-12-集群">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://anyu967.github.io/blog/img/bg/001.png">
+<meta property="og:image" content="https://blog.nivago.xyz/img/bg/001.png">
 <meta property="article:published_time" content="2019-06-12T02:50:34.000Z">
 <meta property="article:modified_time" content="2026-04-24T10:50:52.394Z">
 <meta property="article:author" content="anyu967">
 <meta property="article:tag" content="Devops">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://anyu967.github.io/blog/img/bg/001.png">
+<meta name="twitter:image" content="https://blog.nivago.xyz/img/bg/001.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -63,38 +63,38 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
   
-<link rel="stylesheet" href="/blog/css/macpanel.css">
+<link rel="stylesheet" href="/css/macpanel.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"anyu967.github.io","root":"/blog/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/blog/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"blog.nivago.xyz","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/blog/js/utils.js" ></script>
-  <script  src="/blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
   
-<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/blog/atom.xml" title="旅行の梦" type="application/atom+xml">
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="旅行の梦" type="application/atom+xml">
 </head>
 
 
@@ -107,7 +107,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/blog/">
+    <a class="navbar-brand" href="/">
       <strong>旅行の梦</strong>
     </a>
 
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/" target="_self">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/" target="_self">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/categories/" target="_self">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/" target="_self">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -184,7 +184,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/bookmark/" target="_self">
+                  <a class="dropdown-item" href="/bookmark/" target="_self">
                     <i class="iconfont icon-map"></i>
                     <span>导航</span>
                   </a>
@@ -192,7 +192,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/gallery/" target="_self">
+                  <a class="dropdown-item" href="/gallery/" target="_self">
                     <i class="iconfont icon-image"></i>
                     <span>图库</span>
                   </a>
@@ -200,7 +200,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/video/" target="_self">
+                  <a class="dropdown-item" href="/video/" target="_self">
                     <i class="iconfont icon-snapchat-fill"></i>
                     <span>影视</span>
                   </a>
@@ -214,7 +214,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/links/" target="_self">
+              <a class="nav-link" href="/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
                 <span>友链</span>
               </a>
@@ -226,7 +226,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/about/" target="_self">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -256,7 +256,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -422,8 +422,8 @@ Virtual Server)</a></li>
 </ul></li>
 <li>HPC(High-performance computing)：高性能运算集群</li>
 </ul>
-<img src="/blog/posts/f8c8020d/ARP-Level.png" srcset="/blog/img/loading.gif" lazyload class="" title="[ARP-Level]">
-<img src="/blog/posts/f8c8020d/closearp.png" srcset="/blog/img/loading.gif" lazyload class="" title="[closearp]">
+<img src="/posts/f8c8020d/ARP-Level.png" srcset="/img/loading.gif" lazyload class="" title="[ARP-Level]">
+<img src="/posts/f8c8020d/closearp.png" srcset="/img/loading.gif" lazyload class="" title="[closearp]">
 <h3 id="负载均衡集群lbc">2.负载均衡集群(LBC)</h3>
 <h4 id="lvs-相关原理">2.1LVS 相关原理：</h4>
 <blockquote>
@@ -435,7 +435,7 @@ Virtual Server)</a></li>
 <li>管理集群的RS: 增、改、删 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipvsadm -a|e -t|u|f service-address -r service-address [-g|i|m] [-w,weight]  <br>ipvsadm -d -t|u|f service-address -r service-address<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="lvs工作模式">2.2LVS工作模式：</h4>
-<img src="/blog/posts/f8c8020d/LVS.png" srcset="/blog/img/loading.gif" lazyload class="" title="[LVS工作模式]">
+<img src="/posts/f8c8020d/LVS.png" srcset="/img/loading.gif" lazyload class="" title="[LVS工作模式]">
 <ul>
 <li>NAT(多目标的DNAT) ✔
 <ul>
@@ -451,7 +451,7 @@ Virtual Server)</a></li>
 </ul></li>
 </ul></li>
 </ul>
-<img src="/blog/posts/f8c8020d/LVS-NAT.png" srcset="/blog/img/loading.gif" lazyload class="" title="[LVS-NAT]">
+<img src="/posts/f8c8020d/LVS-NAT.png" srcset="/img/loading.gif" lazyload class="" title="[LVS-NAT]">
 <ul>
 <li>DR(Direct Routing) ✔
 <ul>
@@ -465,7 +465,7 @@ Virtual Server)</a></li>
 </ul></li>
 </ul></li>
 </ul>
-<img src="/blog/posts/f8c8020d/LVS-DR.png" srcset="/blog/img/loading.gif" lazyload class="" title="[LVS-DR]">
+<img src="/posts/f8c8020d/LVS-DR.png" srcset="/img/loading.gif" lazyload class="" title="[LVS-DR]">
 <ul>
 <li>TUN
 <ul>
@@ -626,7 +626,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
 <li>一主+多备，共用同一个IP，但优先级不同</li>
 <li>支持故障自动切换</li>
 <li>支持节点健康状态检查<br />
-#### 5.2LVS-DR+Keeplived： <img src="/blog/posts/f8c8020d/LVS-DR-Keepalived.png" srcset="/blog/img/loading.gif" lazyload class="" title="[LVS-DR-Keepalived]"></li>
+#### 5.2LVS-DR+Keeplived： <img src="/posts/f8c8020d/LVS-DR-Keepalived.png" srcset="/img/loading.gif" lazyload class="" title="[LVS-DR-Keepalived]"></li>
 </ul></li>
 </ul>
 <h4 id="负载调度器-1">5.3负载调度器 1</h4>
@@ -636,7 +636,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
 <h4 id="真实服务器-1">5.5真实服务器</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ~]# service httpd start  <span class="hljs-comment"># 真实服务器开启Web服务    </span><br>[root@xy ~]# chkconfig httpd on <br>[root@xy ~]# <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;this is Server 1&quot;</span> &gt;&gt; /var/www/index.html  <span class="hljs-comment"># 10.10.10.13   </span><br>[root@xy ~]# curl localhost<br>[root@xy ~]# <span class="hljs-built_in">cd</span> /etc/sysconfig/network-scripts/<br>[root@xy ~]# <span class="hljs-built_in">cp</span> ifcfg-lo ifcfg-lo:0    <br>[root@xy ~]# vim ifcfg-lo:0  拷贝回环网卡子接口    <br>  DEVICE=lo:0   <br>  IPADDR=10.10.10.100     <br>  NETMASK=255.255.255.255   <br>[root@xy ~]# vim /etc/sysctl.conf   <span class="hljs-comment"># 关闭对应ARP 响应及公告功能   </span><br>  net.ipv4.conf.all.arp_ignore = 1    <br>  net.ipv4.conf.all.arp_announce = 2    <br>  net.ipv4.conf.default.arp_ignore = 1  <br>  net.ipv4.conf.default.arp_announce = 2   <br>  net.ipv4.conf.lo.arp_ignore = 1   <br>  net.ipv4.conf.lo.arp_announce = 2   <br>[root@xy ~]# sysctl -p <br>[root@xy ~]# ifup lo: 0  <br>[root@xy ~]# route add -host 10.10.10.100 dev lo:0 <span class="hljs-comment"># 添加路由记录，当访问VIP 交给lo:0 网卡接受  </span><br>[root@xy ~]# <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;route add -host 10.10.10.100 dev lo:0&quot;</span> &gt;&gt; /etc/rc.local <span class="hljs-comment"># 加入到开机自启中  </span><br>[root@xy ~]# ipvsadm -Ln --stats    <br>  IP Virtual Server version 1.2.1 (siza=4096)  <br>  Port LocalAddress:Port   <br>      -&gt; RemoteAddress:Port       Conns       InPkts      OutPkts     InBytes     OutBytes       <br>  TCP 10.10.10.100:80             16          79          0           11036          0<br>      -&gt;10.10.10.13:80            8           39          0           5481           0<br>      -&gt;10.10.10.14:80            8           40          0           5555           0<br></code></pre></td></tr></table></figure>
 <h4 id="heartbeatnginx">5.6Heartbeat+Nginx：</h4>
-<img src="/blog/posts/f8c8020d/Heartbeat-Nginx.png" srcset="/blog/img/loading.gif" lazyload class="" title="[Heartbeat-Nginx]">
+<img src="/posts/f8c8020d/Heartbeat-Nginx.png" srcset="/img/loading.gif" lazyload class="" title="[Heartbeat-Nginx]">
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xy ~]# yum -y install pcre pcre-devel zlib zlib-devel  <span class="hljs-comment"># 10.10.10.11  </span><br>[root@xy nginx-1.2.6]# useradd -s /sbin/no-login -M nginx  -M 家目录  <br>[root@xy nginx-1.2.6]# ./configure --prefix=/usr/local/nginx --user=nginx --group=nginx  <br>[root@xy nginx-1.2.6]# make &amp;&amp; make install    <br><br>[root@xy ~]# tar -xzvf heartbeat.tar.gz  <br>[root@xy heartbeat]# yum -y install ntp  <span class="hljs-comment"># 安装时间同步服务程序  </span><br>[root@xy heartbeat]# vim /ect/ntp.conf <br>  restrict 10.10.10.0 mask 255.255.255.0 nomodify notrap  <br>  server 127.127.1.0   <br>  fudge 127.127.1.0 stratum 10   <br>[root@xy heartbeat]# service ntpd start  <br>[root@xy heartbeat]# chkconfig ntpd on <br>[root@xy ~] <span class="hljs-comment"># yum install -y ntpdate    # 10.10.10.12  </span><br>[root@xy ~] <span class="hljs-comment"># ntpdate -u 10.10.10.11 </span><br>[root@xy heartbeat]# vim /etc/sysconfig/network  <span class="hljs-comment"># 更改主机名  uname -n</span><br>[root@xy heartbeat]# <span class="hljs-built_in">cd</span> /usr/share/doc/heartbeat-3.0.4<br>[root@xy heartbeat]# <span class="hljs-built_in">cp</span> -a authkeys ha.cf haresources /etc/ha.d <br>[root@xy heartbeat]# <span class="hljs-built_in">cd</span> !$ <br>[root@xy ha.d]# <span class="hljs-built_in">dd</span> <span class="hljs-keyword">if</span>=/dev/random bs=512 count=1 | openssl md5 <br>  记录了 0+1 的读入  <br>  记录了 0+1 的写入  <br>  16字节(16 B)已复制, 6.5455e-05 秒, 244 kb/秒    <br>  (stdin)=53a0ba829e8a55f7faea1891c850dde8  <br>[root@xy ha.d]#  vim authkeys <br>  auth 3<br>  1 crc   <br>  2 sha1 HI!  <br>  3 md5 53a0ba829e8a55f7faea1891c850dde8     <br>[root@xy ha.d]# <span class="hljs-built_in">chmod</span> 600 authkeys  <br>[root@xy ha.d]# vim ha.cf  <span class="hljs-comment"># /bcast  /node  </span><br>  bcast   eth0    <span class="hljs-comment">#Linux   </span><br>  node    www.centos1.com  <br>  node    www.centos2.com     <br>[root@xy ha.d]# haresoures<br>  www.centos1.com IPaddr::10.10.10.100/24/eth0:0  <span class="hljs-comment"># 切换 IP 地址</span><br>[root@xy ~]# scp ha.cf authkeys haresoures root@10.10.10.12:/etc/ha.d/ <span class="hljs-comment"># 10.10.10.12  </span><br>[root@xy ha.d]#  /etc/init.d/ha.d<br>  <span class="hljs-comment">#!/bin/bash         # 检测脚本</span><br>  PWD=/usr/local/script/<br>  URL=<span class="hljs-string">&quot;http://10.10.10.11/index.html&quot;</span><br>  HTTP_CODE=`curl -o /dev/null -s -w <span class="hljs-string">&quot;%&#123;http_code&#125;&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;URL&#125;</span>&quot;</span>` <br>  <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$HTTP_CODE</span> != 200 ]<br>  <span class="hljs-keyword">then</span><br>  	   service heartbeat stop<br>  <span class="hljs-keyword">fi</span><br></code></pre></td></tr></table></figure>
 
                 
@@ -656,7 +656,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
     
       <span class="category-chain">
         
-  <a href="/blog/categories/Devops-linux-%E4%BA%91%E5%8E%9F%E7%94%9F/" class="category-chain-item">Devops, linux, 云原生</a>
+  <a href="/categories/Devops-linux-%E4%BA%91%E5%8E%9F%E7%94%9F/" class="category-chain-item">Devops, linux, 云原生</a>
   
   
 
@@ -671,9 +671,9 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/linux/" class="print-no-link">#linux</a>
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
       
-        <a href="/blog/tags/Devops/" class="print-no-link">#Devops</a>
+        <a href="/tags/Devops/" class="print-no-link">#Devops</a>
       
     </div>
   
@@ -686,7 +686,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
   <div class="license-box my-3">
     <div class="license-title">
       <div>Linux 集群</div>
-      <div>https://anyu967.github.io/blog/posts/f8c8020d.html</div>
+      <div>https://blog.nivago.xyz/posts/f8c8020d.html</div>
     </div>
     <div class="license-meta">
       
@@ -730,7 +730,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/posts/a6e6cc3d.html" title="关于正则表达式">
+                      <a href="/posts/a6e6cc3d.html" title="关于正则表达式">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">关于正则表达式</span>
                         <span class="visible-mobile">上一篇</span>
@@ -740,7 +740,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/posts/48810125.html" title="Linux 监控">
+                      <a href="/posts/48810125.html" title="Linux 监控">
                         <span class="hidden-mobile">Linux 监控</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -844,7 +844,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <a href="https://blog.kevinchu.top/atom.xml" target="_blank" rel="nofollow noopener"><i class="iconfont icon-rss"></i>RSS</a> <div style="font-size: 0.85rem"> <span>本网站由</span> <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow noopener" ><img src="/img/bg/upyun.png" srcset="/blog/img/loading.gif" lazyload alt="upyun" width="55px" height="30px" style="fill: currentColor;"></a> <span>提供CDN加速/云存储服务<span> </div> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <a href="https://blog.kevinchu.top/atom.xml" target="_blank" rel="nofollow noopener"><i class="iconfont icon-rss"></i>RSS</a> <div style="font-size: 0.85rem"> <span>本网站由</span> <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow noopener" ><img src="/img/bg/upyun.png" srcset="/img/loading.gif" lazyload alt="upyun" width="55px" height="30px" style="fill: currentColor;"></a> <span>提供CDN加速/云存储服务<span> </div> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
     </div>
   
   
@@ -893,7 +893,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
         >
           
             <span style="visibility: hidden; width: 0">|</span>
-            <img src="/blog/img/police_beian.png" srcset="/blog/img/loading.gif" lazyload alt="police-icon"/>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
           
           <span>陕公网安备61058102000324号</span>
         </a>
@@ -923,8 +923,8 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/blog/js/events.js" ></script>
-<script  src="/blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -946,7 +946,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
 
 
   
-    <script  src="/blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -1045,7 +1045,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -1053,14 +1053,14 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
 
 
   
-<script src="/blog/js/starts.js"></script>
-<script src="/blog/js/typing-effect.js"></script>
+<script src="/js/starts.js"></script>
+<script src="/js/typing-effect.js"></script>
 
 
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
