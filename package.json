@@ -5,8 +5,11 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
-    "deploy": "hexo deploy",
+    "deploy:github": "hexo clean && hexo generate && hexo deploy",
+    "deploy:aliyun": "hexo clean && hexo generate --config _config.yml,_config.aliyun.yml && hexo deploy --config _config.yml,_config.aliyun.yml",
+    "deploy:all": "npm run deploy:aliyun && npm run deploy:github",
     "server": "hexo server"
+    
   },
   "hexo": {
     "version": "8.1.1"
