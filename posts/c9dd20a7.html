@@ -26,17 +26,15 @@
 <meta property="og:site_name" content="旅行の梦">
 <meta property="og:description" content="2019-09-09-ANT">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://anyu967.github.io/posts/c9dd20a7/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/c9dd20a7/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B01.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/c9dd20a7/httpd_logo.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/c9dd20a7/nginx.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/c9dd20a7/tomcat.png">
+<meta property="og:image" content="https://anyu967.github.io/img/bg/001.png">
 <meta property="article:published_time" content="2019-09-09T15:25:10.000Z">
-<meta property="article:modified_time" content="2026-02-22T05:33:39.813Z">
+<meta property="article:modified_time" content="2026-04-24T10:11:18.856Z">
 <meta property="article:author" content="anyu967">
-<meta property="article:tag" content="devops">
+<meta property="article:tag" content="apache">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="tomcat">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://anyu967.github.io/posts/c9dd20a7/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B.png">
+<meta name="twitter:image" content="https://anyu967.github.io/img/bg/001.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -259,7 +257,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/bg/003.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -362,10 +360,10 @@
 资源分配给进程，<code>同一进程的所有线程共享该进程的所有资源</code>;<br />
 线程在执行过程中，需要协作同步。不同进程的线程间要利用<code>消息通信</code>的办法实现同步;<br />
 处理任务分给线程，即真正在处理任务上运行的是线程;<br />
-线程是指进程内的一个执行单元，也是进程内的可调度实体;</p>
+线程是指进程内的一个执行单元，也是进程内的可调度实体;
+<img src="/posts/c9dd20a7/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B.png" srcset="/img/loading.gif" lazyload class="" title="[进程与线程]"><br />
+<img src="/posts/c9dd20a7/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B01.png" srcset="/img/loading.gif" lazyload class="" title="[进程与线程01]"></p>
 </blockquote>
-<img src="/posts/c9dd20a7/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B.png" srcset="/img/loading.gif" lazyload class="" title="[进程与线程]">
-<img src="/posts/c9dd20a7/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B01.png" srcset="/img/loading.gif" lazyload class="" title="[进程与线程01]">
 <h2 id="同步异步-阻塞非阻塞">同步/异步 &amp;&amp; 阻塞/非阻塞</h2>
 <h3 id="同步异步被调用者">同步/异步（被调用者）</h3>
 <ul>
@@ -385,12 +383,11 @@
 <h2
 id="io多路复用的三种模型selectpollepoll">IO多路复用的三种模型:Select，Poll，Epoll</h2>
 <ul>
-<li><a
+<li><p><a
 target="_blank" rel="noopener" href="https://www.cnblogs.com/javalyy/p/8882066.html">参考文章</a><br />
-</li>
-<li>IO有<code>内存IO</code>、<code>网络IO</code>和<code>磁盘IO</code>三种，通常说的IO指的是后两者;
-以文件IO为例,一个IO读过程是文件数据从<code>磁盘→内核缓冲区→用户内存</code>的过程。同步与异步的区别主要在于数据从内<code>核缓冲区→用户内存</code>这个过程需不需要用户进程等待，即实际的IO读写是否阻塞请求进程。(网络IO把磁盘换做网卡即可)</li>
-</ul>
+</p></li>
+<li><p>IO有<code>内存IO</code>、<code>网络IO</code>和<code>磁盘IO</code>三种，通常说的IO指的是后两者;
+以文件IO为例,一个IO读过程是文件数据从<code>磁盘→内核缓冲区→用户内存</code>的过程。同步与异步的区别主要在于数据从内<code>核缓冲区→用户内存</code>这个过程需不需要用户进程等待，即实际的IO读写是否阻塞请求进程。(网络IO把磁盘换做网卡即可)</p>
 <table>
 
 <thead>
@@ -433,7 +430,8 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/javalyy/p/8882066.h
 <td>拷贝进内核保存</td>
 </tr>
 </tbody>
-</table>
+</table></li>
+</ul>
 <h2 id="apachenginx与tomcat区别">apache、nginx与tomcat区别</h2>
 <blockquote>
 <p>Apache和nginx应该叫做<code>HTTP Server</code>，而tomcat是一个<code>Application Server</code>，JSP/Servlet容器应用的容器;
@@ -525,22 +523,8 @@ target="_blank" rel="noopener" href="http://tomcat.apache.org/">官方网站</a>
     
       <span class="category-chain">
         
-  <a href="/categories/apache/" class="category-chain-item">apache</a>
+  <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-chain-item">中间件</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/apache/nginx/" class="category-chain-item">nginx</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/apache/nginx/tomcat/" class="category-chain-item">tomcat</a>
-  
-  
-
-  
-
   
 
       </span>
@@ -554,7 +538,11 @@ target="_blank" rel="noopener" href="http://tomcat.apache.org/">官方网站</a>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/devops/" class="print-no-link">#devops</a>
+        <a href="/tags/apache/" class="print-no-link">#apache</a>
+      
+        <a href="/tags/nginx/" class="print-no-link">#nginx</a>
+      
+        <a href="/tags/tomcat/" class="print-no-link">#tomcat</a>
       
     </div>
   

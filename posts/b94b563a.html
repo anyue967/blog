@@ -26,11 +26,15 @@
 <meta property="og:site_name" content="旅行の梦">
 <meta property="og:description" content="2019-07-16-DockFile">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://anyu967.github.io/img/bg/008.jpg">
 <meta property="article:published_time" content="2019-07-16T10:25:16.000Z">
-<meta property="article:modified_time" content="2026-02-22T05:33:39.779Z">
+<meta property="article:modified_time" content="2026-04-24T10:14:58.827Z">
 <meta property="article:author" content="anyu967">
+<meta property="article:tag" content="docker">
 <meta property="article:tag" content="dockerfile">
+<meta property="article:tag" content="k8s">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://anyu967.github.io/img/bg/008.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -282,7 +286,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.5k 字
         
       </span>
     
@@ -293,7 +297,7 @@
         
         
         
-          12 分钟
+          13 分钟
         
       </span>
     
@@ -345,6 +349,41 @@
               <div class="markdown-body">
                 
                 <p>2019-07-16-DockFile <span id="more"></span></p>
+<ul>
+<li><a href="#dockerfile-语法">DockerFile 语法</a>
+<ul>
+<li><a href="#docker_practice">docker_practice</a></li>
+<li><a href="#运行">运行</a></li>
+<li><a href="#from----指定基础image">FROM – 指定基础image</a></li>
+<li><a href="#maintainer---指定镜像创建者信息">MAINTAINER
+–指定镜像创建者信息</a></li>
+<li><a href="#run---安装软件用">RUN –安装软件用</a></li>
+<li><a href="#cmd---设置-container-启动时执行的操作覆盖">CMD –设置
+container 启动时执行的操作(覆盖)</a></li>
+<li><a href="#entrypoint---设置-container-启动执行的操作追加">ENTRYPOINT
+–设置 container 启动执行的操作(追加)</a></li>
+<li><a href="#user---设置-container-用户">USER –设置 container
+用户</a></li>
+<li><a href="#expose---指定容器需要映射到宿主机的端口">EXPOSE
+–指定容器需要映射到宿主机的端口</a></li>
+<li><a href="#env---用于设置环境变量">ENV –用于设置环境变量</a></li>
+<li><a
+href="#add---从-src-复制文件到-container-的-dest-路径解包后拷贝">ADD –从
+src 复制文件到 container 的 dest 路径(解包后拷贝)</a></li>
+<li><a href="#copy---从-src-复制文件到-container-的-dest-路径">COPY –从
+src 复制文件到 container 的 dest 路径</a></li>
+</ul></li>
+<li><a href="#volume---指定挂载点">VOLUME –指定挂载点</a>
+<ul>
+<li><a href="#workdir---切换目录">WORKDIR –切换目录</a></li>
+<li><a href="#onbuild---在子镜像中执行">ONBUILD –在子镜像中执行</a></li>
+<li><a href="#构建示例构建php">构建示例(构建PHP)</a></li>
+</ul></li>
+<li><a href="#构建示例构建java">构建示例(构建JAVA)</a>
+<ul>
+<li><a href="#构建示例tomcat">构建示例(tomcat)</a></li>
+</ul></li>
+</ul>
 <h3 id="dockerfile-语法">DockerFile 语法</h3>
 <h4 id="docker_practice"><a
 target="_blank" rel="noopener" href="https://github.com/yeasy/docker_practice">docker_practice</a></h4>
@@ -354,57 +393,60 @@ target="_blank" rel="noopener" href="https://github.com/yeasy/docker_practice">d
 <ul>
 <li>构建指令，必须指定且需要在 DockerFile
 其他指令的前面，后续指令依赖指定的 image，FROM指定的基础 image
-既可以是本地 Repo 也可以是官方的远程仓 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">FROM</span> <span class="hljs-string">centos:7.2</span><br><span class="hljs-string">FROM</span> <span class="hljs-string">centos</span><br></code></pre></td></tr></table></figure></li>
+既可以是本地 Repo 也可以是官方的远程仓 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">FROM</span> centos:<span class="hljs-number">7.2</span><br><span class="hljs-keyword">FROM</span> centos<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="maintainer-指定镜像创建者信息">MAINTAINER
 –指定镜像创建者信息</h4>
 <ul>
 <li>构建指令，用于将 image 的制作者相关信息写入到 image
 中，当执行<code>docker inspect</code>，输出中有相应的字段记录该信息
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">MAINTAINER</span> username <span class="hljs-string">&quot;username<span class="hljs-variable">@xxx</span>.com&quot;</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">MAINTAINER</span> username <span class="hljs-string">&quot;username@xxx.com&quot;</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="run-安装软件用">RUN –安装软件用</h4>
 <ul>
 <li>构建指令，RUN 可以运行任何被基础 image 支持的命令，若基础 image 为
-centos，则软件管理部分只能使用 centos 的包管理命令 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">cd</span> /tmp &amp;&amp; curl -L <span class="hljs-string">&#x27;http://archive.apache.org.dist/tomcat/tomcat-7/v7.0.8/bin/apache-tomcat-7.0.8.tar.gz&#x27;</span> | tar -xz</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> [ <span class="hljs-string">&quot;/bin/bash&quot;</span>, <span class="hljs-string">&quot;-c&quot;</span>, <span class="hljs-string">&quot;echo helllo&quot;</span> ]</span><br></code></pre></td></tr></table></figure></li>
+centos，则软件管理部分只能使用 centos 的包管理命令 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">cd</span> /tmp &amp;&amp; curl -L <span class="hljs-string">&#x27;http://archive.apache.org.dist/tomcat/tomcat-7/v7.0.8/bin/apache-tomcat-7.0.8.tar.gz&#x27;</span> | tar -xz</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> [ <span class="hljs-string">&quot;/bin/bash&quot;</span>, <span class="hljs-string">&quot;-c&quot;</span>, <span class="hljs-string">&quot;echo helllo&quot;</span> ]</span><br></code></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="cmd-设置-container-启动时执行的操作覆盖">CMD –设置 container
-启动时执行的操作(覆盖)</h4>
+<h4 id="cmd-设置-container-启动时执行的操作覆盖">CMD –设置 <span
+style="color:rgb(255, 0, 255);">container
+启动时执行的操作(覆盖)</span></h4>
 <ul>
 <li>设置指令，用于 container
 启动时指定的操作，该操可以是自定义的脚本，也可以是执行系统的命令，该指令只能在文件中存在一次，若有多个，只执行最后一条
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">CMD</span><span class="language-bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello，World！&quot;</span></span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">CMD</span><span class="language-bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello，World！&quot;</span></span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="entrypoint-设置-container-启动执行的操作追加">ENTRYPOINT –设置
-container 启动执行的操作(追加)</h4>
+<span style="color:rgb(255, 0, 255);">container
+启动执行的操作(追加)</span></h4>
 <ul>
 <li><p>设置指令，指定容器启动时执行的操作，可以多次设置，但是只有最后一个有效
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> <span class="hljs-built_in">ls</span> -l</span><br></code></pre></td></tr></table></figure></p></li>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> <span class="hljs-built_in">ls</span> -l</span><br></code></pre></td></tr></table></figure></p></li>
 <li><p>该指令独自使用,
 若还有CMD命令且CMD是一条完整的可执行的命令，则CMD指令和ENTRYPOINT会相互覆盖，只有最后一个CMD
-或 ENTRYPOINT 有效 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">CMD</span><span class="language-bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello World&quot;</span></span><br><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> <span class="hljs-built_in">ls</span> -l</span><br><span class="hljs-comment"># CMD 不会执行, ENTRYPOINT有效</span><br></code></pre></td></tr></table></figure></p></li>
+或 ENTRYPOINT 有效 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">CMD</span><span class="language-bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello World&quot;</span></span><br><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> <span class="hljs-built_in">ls</span> -l</span><br><span class="hljs-comment"># CMD 不会执行, ENTRYPOINT有效</span><br></code></pre></td></tr></table></figure></p></li>
 <li><p>该指令与CMD配合使用指定 ENTRYPOINT 的默认参数，则 CMD
 指令不是完整的可执行命令，仅仅是参数部分；ENTRYPOINT 指令只能使用 JSON
-方式 指定执行命令，而不能指定参数 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">FROM</span> ubuntu<br>CMD <span class="hljs-selector-attr">[<span class="hljs-string">&quot;-l&quot;</span>]</span><br>ENTRYPOINT <span class="hljs-selector-attr">[<span class="hljs-string">&quot;/usr/bin/ls&quot;</span>]</span><br></code></pre></td></tr></table></figure></p></li>
+方式 指定执行命令，而不能指定参数 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">FROM</span> ubuntu<br><span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;-l&quot;</span>]</span><br><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;/usr/bin/ls&quot;</span>]</span><br></code></pre></td></tr></table></figure></p></li>
 </ul>
 <h4 id="user-设置-container-用户">USER –设置 container 用户</h4>
 <ul>
-<li>设置指令，设置启动容器的用户，默认 root 用户 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">USER</span> <span class="hljs-title">daemon</span> = ENTRYPOINT [<span class="hljs-string">&quot;memcached&quot;</span>, <span class="hljs-string">&quot;-u&quot;</span>, <span class="hljs-string">&quot;daemon&quot;</span>]<br></code></pre></td></tr></table></figure></li>
+<li>设置指令，设置启动容器的用户，默认 root 用户 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">USER</span> daemon = <span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;memcached&quot;</span>, <span class="hljs-string">&quot;-u&quot;</span>, <span class="hljs-string">&quot;daemon&quot;</span>]</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="expose-指定容器需要映射到宿主机的端口">EXPOSE
 –指定容器需要映射到宿主机的端口</h4>
 <ul>
-<li>设置指令，会将容器中端口映射成宿主机中的某个端口 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stylus">EXPOSE <span class="hljs-number">22</span><br>docker run -<span class="hljs-selector-tag">p</span> port1 <span class="hljs-selector-tag">image</span><br>EXPOSE port1 port2 port3<br>docker run -<span class="hljs-selector-tag">p</span> port1 port2 port3 <span class="hljs-selector-tag">image</span><br>docker run -<span class="hljs-selector-tag">p</span> host_port1:port1 -<span class="hljs-selector-tag">p</span> host_port2:port2 -<span class="hljs-selector-tag">p</span> host_port3:port3 image<br></code></pre></td></tr></table></figure></li>
+<li>设置指令，会将容器中端口映射成宿主机中的某个端口 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">22</span><br>docker <span class="hljs-keyword">run</span><span class="language-bash"> -p port1 image</span><br><span class="hljs-keyword">EXPOSE</span> port1 port2 port3<br>docker <span class="hljs-keyword">run</span><span class="language-bash"> -p port1 port2 port3 image</span><br>docker <span class="hljs-keyword">run</span><span class="language-bash"> -p host_port1:port1 -p host_port2:port2 -p host_port3:port3 image</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="env-用于设置环境变量">ENV –用于设置环境变量</h4>
 <ul>
 <li>构建指令，在 image 中设置一个环境变量，后续的 RUN
 可以使用，container 启动后，通过 <code>docker inspect</code>
 查看环境变量，或者 <code>docker run --env key=value</code>
-时设置或修改环境变量 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">ENV JAVA_HOME <span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/java/</span>dirent<br></code></pre></td></tr></table></figure></li>
+时设置或修改环境变量 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">ENV</span> JAVA_HOME /path/to/java/dirent<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="add-从-src-复制文件到-container-的-dest-路径解包后拷贝">ADD –从
-src 复制文件到 container 的 dest 路径(解包后拷贝)</h4>
+src 复制文件到 container 的 dest 路径<span
+style="color:rgb(255, 0, 255);">(解包后拷贝)</span></h4>
 <ul>
 <li>ADD [src] [dest]
 <ul>
@@ -421,16 +463,16 @@ src 复制文件到 container 的 dest 路径(解包后拷贝)</h4>
 <h3 id="volume-指定挂载点">VOLUME –指定挂载点</h3>
 <ul>
 <li>设置指令，使容器中的一个目录具有持久化存储数据的功能，该目录可以被容器本身使用，也可以共享给其他容器使用，因为容器使用的是UFS技术，这种文件系统不能持久化，当容器关闭后，所有更改都会丢失
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">FROM</span> base<br>VOLUME <span class="hljs-selector-attr">[<span class="hljs-string">&quot;/tmp/data&quot;</span>]</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">FROM</span> base<br><span class="hljs-keyword">VOLUME</span><span class="language-bash"> [<span class="hljs-string">&quot;/tmp/data&quot;</span>]</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="workdir-切换目录">WORKDIR –切换目录</h4>
 <ul>
 <li>设置指令，可以多次切换，等同于 cd，对RUN、CMD、ENTRYPOINT生效
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /p1 WORKDIR p2 RUN vim a.txt  === RUN <span class="hljs-built_in">cd</span> /p1/p2 &amp;&amp; vim a.txt</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /p1 WORKDIR p2 RUN vim a.txt  === RUN <span class="hljs-built_in">cd</span> /p1/p2 &amp;&amp; vim a.txt</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="onbuild-在子镜像中执行">ONBUILD –在子镜像中执行</h4>
 <ul>
-<li>在构建镜像时并不执行，而是在它的子镜像中执行 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">ONBUILD</span> <span class="hljs-string">ADD</span> <span class="hljs-string">.</span> <span class="hljs-string">/app/src</span><br><span class="hljs-string">ONBUILD</span> <span class="hljs-string">RUN</span> <span class="hljs-string">/usr/local/bin/python-build</span> <span class="hljs-string">--dir</span> <span class="hljs-string">/app/src</span><br><br><span class="hljs-string">docker</span> <span class="hljs-string">build</span> <span class="hljs-string">-t</span> <span class="hljs-string">imagename</span> <span class="hljs-string">.</span><br><span class="hljs-string">FROM</span> <span class="hljs-string">hub.c.163.com/public/centos:6.7</span><br><span class="hljs-string">MAINTAINER</span> <span class="hljs-string">xingyue@163.com</span><br><span class="hljs-string">ADD</span> <span class="hljs-string">./apache-tomcat-7.0.42.tar.gz</span> <span class="hljs-string">/root</span><br><span class="hljs-string">ADD</span> <span class="hljs-string">./jdk-7u25-linux-x64.tar.gz</span> <span class="hljs-string">/root</span><br><span class="hljs-string">ENV</span> <span class="hljs-string">JAVA_HOME</span> <span class="hljs-string">/root/jdk1.7.0_25</span><br><span class="hljs-string">ENV</span> <span class="hljs-string">PATH</span> <span class="hljs-string">$JAVA_HOME/bin:$PATH</span><br><span class="hljs-string">EXPOSE</span> <span class="hljs-number">8080</span><br><span class="hljs-string">ENTRYPOINT</span> <span class="hljs-string">/root/apache-tomcat-7.0.42/bin/startup.sh</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">tailf</span> <span class="hljs-string">/root/apache-tomcat-7.0.42/logs/catalina.out</span><br></code></pre></td></tr></table></figure></li>
+<li>在构建镜像时并不执行，而是在它的子镜像中执行 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">ONBUILD</span> <span class="hljs-keyword">ADD</span><span class="language-bash"> . /app/src</span><br><span class="hljs-keyword">ONBUILD</span> <span class="hljs-keyword">RUN</span><span class="language-bash"> /usr/local/bin/python-build --<span class="hljs-built_in">dir</span> /app/src</span><br><br>docker build -t imagename .<br><span class="hljs-keyword">FROM</span> hub.c.<span class="hljs-number">163</span>.com/public/centos:<span class="hljs-number">6.7</span><br><span class="hljs-keyword">MAINTAINER</span> xingyue@<span class="hljs-number">163</span>.com<br><span class="hljs-keyword">ADD</span><span class="language-bash"> ./apache-tomcat-7.0.42.tar.gz /root</span><br><span class="hljs-keyword">ADD</span><span class="language-bash"> ./jdk-7u25-linux-x64.tar.gz /root</span><br><span class="hljs-keyword">ENV</span> JAVA_HOME /root/jdk1.<span class="hljs-number">7.0</span>_25<br><span class="hljs-keyword">ENV</span> PATH $JAVA_HOME/bin:$PATH<br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span><br><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> /root/apache-tomcat-7.0.42/bin/startup.sh &amp;&amp; tailf /root/apache-tomcat-7.0.42/logs/catalina.out</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <table>
 
@@ -453,17 +495,20 @@ src 复制文件到 container 的 dest 路径(解包后拷贝)</h4>
 <td>MAINTAINER</td>
 <td>镜像维护者信息</td>
 <td>ENTRYPOINT</td>
-<td>运行容器执行的shell命令</td>
+<td><span
+style="color:rgb(255, 0, 255);">运行容器执行的shell命令</span></td>
 </tr>
 <tr>
 <td>RUN</td>
-<td>构建镜像运行的shell命令</td>
+<td><span
+style="color:rgb(255, 0, 255);">构建镜像运行的shell命令</span></td>
 <td>VOLUME</td>
 <td>指定容器挂载点到宿主机自动生成的目录</td>
 </tr>
 <tr>
 <td>CMD</td>
-<td>运行容器执行的shell命令</td>
+<td><span
+style="color:rgb(255, 0, 255);">运行容器执行的shell命令</span></td>
 <td>USER</td>
 <td>为RUN/CMD/ENTRYPOINT执行命令指定用户</td>
 </tr>
@@ -488,11 +533,11 @@ src 复制文件到 container 的 dest 路径(解包后拷贝)</h4>
 </tbody>
 </table>
 <h4 id="构建示例构建php">构建示例(构建PHP)</h4>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">FROM</span> <span class="hljs-string">centos:7</span><br><span class="hljs-string">MAINTAINER</span> <span class="hljs-string">anyue967</span><br><span class="hljs-string">RUN</span> <span class="hljs-string">yum</span> <span class="hljs-string">install</span> <span class="hljs-string">-y</span> <span class="hljs-string">gcc</span> <span class="hljs-string">gcc-c++</span> <span class="hljs-string">make</span> <span class="hljs-string">gd-devel</span> <span class="hljs-string">libxml2-devel</span> <span class="hljs-string">libcurl-devel</span> <span class="hljs-string">libjpeg-devel</span> <span class="hljs-string">libpng-devel</span> <span class="hljs-string">openssl-devel</span><br><span class="hljs-string">ADD</span> <span class="hljs-string">php-5.6.31.tar.gz</span> <span class="hljs-string">/tmp/</span><br><span class="hljs-string">RUN</span> <span class="hljs-string">cd</span> <span class="hljs-string">/tmp/php-5.6.31</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">./configure</span> <span class="hljs-string">--prefix=/usr/local/php</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">--with-config-file-path=/usr/local/php/etc</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">--with-mysql</span> <span class="hljs-string">--with-mysqli</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">--with-openssl</span> <span class="hljs-string">--with-zlib</span> <span class="hljs-string">--with-curl</span> <span class="hljs-string">--with-gd</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">--with-jpeg-dir</span> <span class="hljs-string">--with-png-dir</span> <span class="hljs-string">--with-iconv</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">--enable-fpm</span> <span class="hljs-string">--enable-zip</span> <span class="hljs-string">--enable-mbstring</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">make</span> <span class="hljs-string">-j</span> <span class="hljs-number">4</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">make</span> <span class="hljs-string">install</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">cp</span> <span class="hljs-string">/usr/local/php/etc/php-fpm.conf.default</span> <span class="hljs-string">/usr/local/php/etc/php-fpm.conf</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">sed</span> <span class="hljs-string">-i</span> <span class="hljs-string">&quot;s/127.0.0.1/0.0.0.0/&quot;</span> <span class="hljs-string">/usr/local/php/etc/php-fpm.conf</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">\</span><br>    <span class="hljs-string">sed</span> <span class="hljs-string">-i</span> <span class="hljs-string">&quot;21a \daemonize = no&quot;</span> <span class="hljs-string">/usr/local/php/etc/php-fpm.conf</span>  <span class="hljs-comment"># 21行追加 daemonize = no </span><br><span class="hljs-string">COPY</span> <span class="hljs-string">php.ini</span> <span class="hljs-string">/usr/local/php/etc</span><br><span class="hljs-string">RUN</span> <span class="hljs-string">rm</span> <span class="hljs-string">-rf</span> <span class="hljs-string">/tmp/php-5.6.31*</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">yum</span> <span class="hljs-string">clean</span> <span class="hljs-string">all</span><br><span class="hljs-string">WORKDIR</span> <span class="hljs-string">/usr/local/php</span><br><span class="hljs-string">EXPOSE</span> <span class="hljs-number">9000</span><br><span class="hljs-string">CMD</span> [<span class="hljs-string">&quot;./sbin/php-fpm&quot;</span>, <span class="hljs-string">&quot;-c&quot;</span>, <span class="hljs-string">&quot;/usr/local/php/etc/php-fpm.conf&quot;</span>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">FROM</span> centos:<span class="hljs-number">7</span><br><span class="hljs-keyword">MAINTAINER</span> anyue967<br><span class="hljs-keyword">RUN</span><span class="language-bash"> yum install -y gcc gcc-c++ make gd-devel libxml2-devel libcurl-devel libjpeg-devel libpng-devel openssl-devel</span><br><span class="hljs-keyword">ADD</span><span class="language-bash"> php-5.6.31.tar.gz /tmp/</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">cd</span> /tmp/php-5.6.31 &amp;&amp; \</span><br><span class="language-bash">    ./configure --prefix=/usr/local/php \</span><br><span class="language-bash">    --with-config-file-path=/usr/local/php/etc \</span><br><span class="language-bash">    --with-mysql --with-mysqli \</span><br><span class="language-bash">    --with-openssl --with-zlib --with-curl --with-gd \</span><br><span class="language-bash">    --with-jpeg-dir --with-png-dir --with-iconv \</span><br><span class="language-bash">    --enable-fpm --enable-zip --enable-mbstring &amp;&amp; \</span><br><span class="language-bash">    make -j 4 &amp;&amp; \</span><br><span class="language-bash">    make install &amp;&amp; \</span><br><span class="language-bash">    <span class="hljs-built_in">cp</span> /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf &amp;&amp; \</span><br><span class="language-bash">    sed -i <span class="hljs-string">&quot;s/127.0.0.1/0.0.0.0/&quot;</span> /usr/local/php/etc/php-fpm.conf &amp;&amp; \</span><br><span class="language-bash">    sed -i <span class="hljs-string">&quot;21a \daemonize = no&quot;</span> /usr/local/php/etc/php-fpm.conf  <span class="hljs-comment"># 21行追加 daemonize = no </span></span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> php.ini /usr/local/php/etc</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">rm</span> -rf /tmp/php-5.6.31* &amp;&amp; yum clean all</span><br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /usr/local/php</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">9000</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;./sbin/php-fpm&quot;</span>, <span class="hljs-string">&quot;-c&quot;</span>, <span class="hljs-string">&quot;/usr/local/php/etc/php-fpm.conf&quot;</span>]</span><br></code></pre></td></tr></table></figure>
 <h3 id="构建示例构建java">构建示例(构建JAVA)</h3>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">FROM</span> <span class="hljs-string">cnetos:7</span><br><span class="hljs-string">MAINTAINER</span> <span class="hljs-string">anyue967</span><br><span class="hljs-string">ADD</span> <span class="hljs-string">jdk-8u45-linux-64.tar.gz</span> <span class="hljs-string">/usr/local</span><br><span class="hljs-string">ENV</span> <span class="hljs-string">JAVA_HOME</span> <span class="hljs-string">/usr/local/jdk1.8.0_45</span><br><span class="hljs-string">ADD</span> <span class="hljs-string">apache-tomcat-8.0.16.tar.gz</span> <span class="hljs-string">/usr/local</span><br><span class="hljs-string">COPY</span> <span class="hljs-string">server.xml</span> <span class="hljs-string">/usr/local/apache-tomcat-8.0.46/conf</span><br><span class="hljs-string">RUN</span> <span class="hljs-string">rm</span> <span class="hljs-string">-f</span> <span class="hljs-string">/usr/local/*.tar.gz</span><br><span class="hljs-string">WORKDIR</span> <span class="hljs-string">/usr/local/apache-tomcat-8.0.46</span><br><span class="hljs-string">EXPOSE</span> <span class="hljs-number">8080</span><br><span class="hljs-string">ENTRYPOINT</span> [<span class="hljs-string">&quot;./bin/catalina.sh&quot;</span>, <span class="hljs-string">&quot;run&quot;</span>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">FROM</span> cnetos:<span class="hljs-number">7</span><br><span class="hljs-keyword">MAINTAINER</span> anyue967<br><span class="hljs-keyword">ADD</span><span class="language-bash"> jdk-8u45-linux-64.tar.gz /usr/local</span><br><span class="hljs-keyword">ENV</span> JAVA_HOME /usr/local/jdk1.<span class="hljs-number">8.0</span>_45<br><span class="hljs-keyword">ADD</span><span class="language-bash"> apache-tomcat-8.0.16.tar.gz /usr/local</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> server.xml /usr/local/apache-tomcat-8.0.46/conf</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">rm</span> -f /usr/local/*.tar.gz</span><br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /usr/local/apache-tomcat-8.0.46</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span><br><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;./bin/catalina.sh&quot;</span>, <span class="hljs-string">&quot;run&quot;</span>]</span><br></code></pre></td></tr></table></figure>
 <h4 id="构建示例tomcat">构建示例(tomcat)</h4>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">FROM</span> <span class="hljs-string">centos</span><br><span class="hljs-string">MAINTAINER</span> <span class="hljs-string">anyu967@163.com</span><br><span class="hljs-string">COPY</span> <span class="hljs-string">test.txt</span> <span class="hljs-string">/usr/local/container.txt</span><br><span class="hljs-string">ADD</span> <span class="hljs-string">jdk-8u171-linux-x64.tar.gz</span> <span class="hljs-string">/usr/local/</span><br><span class="hljs-string">ADD</span> <span class="hljs-string">apache-tomcat-9.0.8.tar.gz</span> <span class="hljs-string">/usr/local</span><br><span class="hljs-string">RUN</span> <span class="hljs-string">yum</span> <span class="hljs-string">install</span> <span class="hljs-string">-y</span> <span class="hljs-string">vim</span><br><span class="hljs-string">ENV</span> <span class="hljs-string">MYPATH</span> <span class="hljs-string">/usr/local</span><br><span class="hljs-string">WORKDIR</span> <span class="hljs-string">$MYPATH</span><br><span class="hljs-string">ENV</span> <span class="hljs-string">JAVA_HOME</span> <span class="hljs-string">/usr/local/jdk1.8.0_171</span><br><span class="hljs-string">ENV</span> <span class="hljs-string">CLASSPATH</span> <span class="hljs-string">$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="hljs-string">ENV</span> <span class="hljs-string">CATALINA_HOME</span> <span class="hljs-string">/usr/local/apache-tomcat-9.0.8</span><br><span class="hljs-string">ENV</span> <span class="hljs-string">CATALINA_BASE</span> <span class="hljs-string">/usr/local/apache-tomcat-9.0.8</span><br><span class="hljs-string">EXPOSED</span> <span class="hljs-number">8080</span><br><span class="hljs-comment"># ENTRYPOINT [&quot;/usr/local/apache-tomcat-9.0.8/bin/startup.sh&quot;]</span><br><span class="hljs-comment"># CMD [&quot;/usr/local/apache-tomcat-9.0.8/bin/catalina.sh&quot;,&quot;run&quot;]</span><br><span class="hljs-string">CMD</span> <span class="hljs-string">/usr/local/apache-tomcat-9.0.8/bin/startup.sh</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">tail</span> <span class="hljs-string">-F</span> <span class="hljs-string">/usr/local/apache-tomcat-9.0.8/bin/log/catalina.out</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-keyword">FROM</span> centos<br><span class="hljs-keyword">MAINTAINER</span> anyu967@<span class="hljs-number">163</span>.com<br><span class="hljs-keyword">COPY</span><span class="language-bash"> test.txt /usr/local/container.txt</span><br><span class="hljs-keyword">ADD</span><span class="language-bash"> jdk-8u171-linux-x64.tar.gz /usr/local/</span><br><span class="hljs-keyword">ADD</span><span class="language-bash"> apache-tomcat-9.0.8.tar.gz /usr/local</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> yum install -y vim</span><br><span class="hljs-keyword">ENV</span> MYPATH /usr/local<br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> <span class="hljs-variable">$MYPATH</span></span><br><span class="hljs-keyword">ENV</span> JAVA_HOME /usr/local/jdk1.<span class="hljs-number">8.0</span>_171<br><span class="hljs-keyword">ENV</span> CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar<br><span class="hljs-keyword">ENV</span> CATALINA_HOME /usr/local/apache-tomcat-<span class="hljs-number">9.0</span>.<span class="hljs-number">8</span><br><span class="hljs-keyword">ENV</span> CATALINA_BASE /usr/local/apache-tomcat-<span class="hljs-number">9.0</span>.<span class="hljs-number">8</span><br>EXPOSED <span class="hljs-number">8080</span><br><span class="hljs-comment"># ENTRYPOINT [&quot;/usr/local/apache-tomcat-9.0.8/bin/startup.sh&quot;]</span><br><span class="hljs-comment"># CMD [&quot;/usr/local/apache-tomcat-9.0.8/bin/catalina.sh&quot;,&quot;run&quot;]</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> /usr/local/apache-tomcat-9.0.8/bin/startup.sh &amp;&amp; <span class="hljs-built_in">tail</span> -F /usr/local/apache-tomcat-9.0.8/bin/log/catalina.out</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -511,7 +556,7 @@ src 复制文件到 container 的 dest 路径(解包后拷贝)</h4>
     
       <span class="category-chain">
         
-  <a href="/categories/docker/" class="category-chain-item">docker</a>
+  <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="category-chain-item">云原生</a>
   
   
 
@@ -527,6 +572,10 @@ src 复制文件到 container 的 dest 路径(解包后拷贝)</h4>
       <i class="iconfont icon-tags"></i>
       
         <a href="/tags/dockerfile/" class="print-no-link">#dockerfile</a>
+      
+        <a href="/tags/docker/" class="print-no-link">#docker</a>
+      
+        <a href="/tags/k8s/" class="print-no-link">#k8s</a>
       
     </div>
   

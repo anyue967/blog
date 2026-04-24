@@ -26,20 +26,14 @@
 <meta property="og:site_name" content="旅行の梦">
 <meta property="og:description" content="2019-06-12-集群">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://anyu967.github.io/posts/f8c8020d/ARP-Level.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/f8c8020d/closearp.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/f8c8020d/LVS.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/f8c8020d/LVS-NAT.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/f8c8020d/LVS-DR.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/f8c8020d/LVS-DR-Keepalived.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/f8c8020d/Heartbeat-Nginx.png">
+<meta property="og:image" content="https://anyu967.github.io/img/bg/001.png">
 <meta property="article:published_time" content="2019-06-12T02:50:34.000Z">
-<meta property="article:modified_time" content="2026-02-22T05:33:39.755Z">
+<meta property="article:modified_time" content="2026-04-24T10:16:20.545Z">
 <meta property="article:author" content="anyu967">
 <meta property="article:tag" content="Devops">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://anyu967.github.io/posts/f8c8020d/ARP-Level.png">
+<meta name="twitter:image" content="https://anyu967.github.io/img/bg/001.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -291,7 +285,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          3.4k 字
         
       </span>
     
@@ -302,7 +296,7 @@
         
         
         
-          28 分钟
+          29 分钟
         
       </span>
     
@@ -354,6 +348,48 @@
               <div class="markdown-body">
                 
                 <p>2019-06-12-集群 <span id="more"></span></p>
+<ul>
+<li><a href="#linux-集群">Linux 集群</a>
+<ul>
+<li><a href="#1liunx-集群概述">1.liunx 集群概述：</a>
+<ul>
+<li><a href="#11-集群概念">1.1 集群概念：</a></li>
+<li><a href="#12-集群cluster的分类">1.2 集群(Cluster)的分类：</a></li>
+</ul></li>
+<li><a href="#2负载均衡集群lbc">2.负载均衡集群(LBC)</a>
+<ul>
+<li><a href="#21lvs-相关原理">2.1LVS 相关原理：</a></li>
+<li><a href="#22lvs工作模式">2.2LVS工作模式：</a></li>
+</ul></li>
+<li><a href="#3集群通用算法">3.集群通用算法</a>
+<ul>
+<li><a href="#31静态调度算法">3.1静态调度算法：</a></li>
+<li><a href="#32动态调度算法">3.2动态调度算法：</a></li>
+<li><a
+href="#33持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优先级最高)</a></li>
+<li><a href="#34ipvsadm编译安装">3.4ipvsadm编译安装</a></li>
+</ul></li>
+<li><a href="#4lvs工作模式构建">4.LVS工作模式构建：</a>
+<ul>
+<li><a href="#41-nat-模式构建">4.1 NAT 模式构建：</a></li>
+<li><a
+href="#42负载调度器配置vipdip">4.2负载调度器配置(VIP,DIP):</a></li>
+<li><a href="#43真实服务器配置">4.3真实服务器配置:</a></li>
+<li><a href="#44dr-模式构建">4.4DR 模式构建：</a></li>
+<li><a href="#45负载调度器配置">4.5负载调度器配置</a></li>
+<li><a href="#46真实服务器">4.6真实服务器</a></li>
+</ul></li>
+<li><a href="#5高可用集群hac">5.高可用集群(HAC)</a>
+<ul>
+<li><a href="#51keeplived原理">5.1Keeplived原理：</a></li>
+<li><a href="#52lvs-drkeeplived">5.2LVS-DR+Keeplived：</a></li>
+<li><a href="#53负载调度器-1">5.3负载调度器 1</a></li>
+<li><a href="#54负载调度器-2">5.4负载调度器 2</a></li>
+<li><a href="#55真实服务器">5.5真实服务器</a></li>
+<li><a href="#56heartbeatnginx">5.6Heartbeat+Nginx：</a></li>
+</ul></li>
+</ul></li>
+</ul>
 <h2 id="linux-集群">Linux 集群</h2>
 <h3 id="liunx-集群概述">1.liunx 集群概述：</h3>
 <h4 id="集群概念">1.1 集群概念：</h4>
@@ -408,7 +444,7 @@ Virtual Server)</a></li>
 <li><strong>网络层</strong>，替换目标地址；</li>
 <li>集群节点，必须在一个网络中；</li>
 <li>真实服务器网关必须指向负载调度器；</li>
-<li>RIP通常都是私有IP，仅用于各个集群节点通信；</li>
+<li>RIP：Real Server IP通常都是私有IP，仅用于各个集群节点通信；</li>
 <li>负载调度器必须位于客户端和真实服务器之间，充当网关；</li>
 <li>支持端口映射，负载调度器操作系统必须是Linux
 ，真实服务器可以使用任意系统;　</li>
@@ -620,7 +656,7 @@ id="持久化连接类似于sh优先级最高">3.3持久化连接(类似于SH优
     
       <span class="category-chain">
         
-  <a href="/categories/Devops-linux/" class="category-chain-item">Devops, linux</a>
+  <a href="/categories/Devops-linux-%E4%BA%91%E5%8E%9F%E7%94%9F/" class="category-chain-item">Devops, linux, 云原生</a>
   
   
 

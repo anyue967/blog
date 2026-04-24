@@ -26,12 +26,14 @@
 <meta property="og:site_name" content="旅行の梦">
 <meta property="og:description" content="2019-07-26-Review">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://anyu967.github.io/img/bg/002.jpg">
 <meta property="article:published_time" content="2019-07-26T02:49:34.000Z">
-<meta property="article:modified_time" content="2026-02-22T05:33:39.788Z">
+<meta property="article:modified_time" content="2026-04-23T08:19:58.574Z">
 <meta property="article:author" content="anyu967">
 <meta property="article:tag" content="Devops">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://anyu967.github.io/img/bg/002.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -254,7 +256,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/bg/006.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -355,11 +357,36 @@ target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-system-b
 MBR(bootloader,446)–&gt; Kernel–&gt; initrd(initramfs)–&gt;
 [ROOTFS]–&gt; /sbin/init(/etc/inittab)</strong></p></li>
 <li><p>initrd：Linux初始RAM磁盘（initrd）是在系统引导过程中挂载的一个临时根文件系统；</p></li>
-<li><p>init进程是系统所有进程的起点 | 类型 | 名称 | 位置 | | :—— | :—— |
-:—————————————————- | | SysV | init | CentOS5之前: /etc/inittab | |
-Upstart | init | CentOS6: /etc/inittab, /etc/init/*.conf | | Systemd |
-systemd | CentOS7: /usr/lib/systemd/system, /etc/systemd/system
-|</p></li>
+<li><p>init进程是系统所有进程的起点</p>
+<table>
+
+<thead>
+<tr>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">名称</th>
+<th style="text-align: left;">位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">SysV</td>
+<td style="text-align: left;">init</td>
+<td style="text-align: left;">CentOS5之前: /etc/inittab</td>
+</tr>
+<tr>
+<td style="text-align: left;">Upstart</td>
+<td style="text-align: left;">init</td>
+<td style="text-align: left;">CentOS6: /etc/inittab,
+/etc/init/*.conf</td>
+</tr>
+<tr>
+<td style="text-align: left;">Systemd</td>
+<td style="text-align: left;">systemd</td>
+<td style="text-align: left;">CentOS7: /usr/lib/systemd/system,
+/etc/systemd/system</td>
+</tr>
+</tbody>
+</table></li>
 <li><p>Linux允许为不同的场合, 分配不同的开机启动程序,
 这就叫做”运行级别”（runlevel）, 也就是说，启动时根据”运行级别”,
 确定要运行哪些程序</p></li>
@@ -422,7 +449,7 @@ id="当用户在浏览器输入网址计算机对dns解释经过哪些流程注�
 id="iptables是否支持time时间控制用户行为请写出步骤">iptables是否支持time时间控制用户行为，请写出步骤</h3>
 <p>支持，需要增加相关支持的内核补丁，并且要重新编译内核。或者使用crontab配合iptables，首先：<code>vi /deny.bat</code>
 输入<code>/sbin/iptables -A OUTPUT -p tcp -s 192.168.1.0/24 --dport 80 -j DROP</code>保存退出，打开crontab-e
-<code>00 21＊　＊　＊ /bin/sh /deny.bat</code></p>
+<code>00 21 * * * /bin/sh /deny.bat</code></p>
 <h3
 id="源码编译apache-要求安装目录为usrlocalapache-需有压缩模块-rewrtie-worker模式-并说明apache的worker-mpm中为什么serverlimit要放到配置段最前面">源码编译apache,
 要求安装目录为/usr/local/apache, 需有压缩模块, rewrtie, worker模式,
@@ -461,8 +488,9 @@ id="如何在linux上重建初始化内存盘镜像文件">如何在Linux上重�
 <h3
 id="linux中的proc文件系统有什么用">linux中的/proc文件系统有什么用？</h3>
 <ul>
-<li>/proc 文件系统是一个虚拟文件系统, 它只存在内存当中,
-而不占用外存空间, Linux 内核提供了一种通过 /proc 文件系统,
+<li>/proc 文件系统是一个虚拟文件系统, <span
+style="color:rgb(255, 0, 255);">它只存在内存当中,
+而不占用外存空间</span>, Linux 内核提供了一种通过 /proc 文件系统,
 在运行时访问内核内部数据结构, 改变内核设置的机制. <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">查看proc信息: <span class="hljs-built_in">ls</span> /proc/<br>查看内核信息: <span class="hljs-built_in">ls</span> /proc/sys<br>查看网卡信息: <span class="hljs-built_in">ls</span> /proc/net<br>查看SCSI信息: <span class="hljs-built_in">ls</span> /proc/scsi<br>查看已加载模块: <span class="hljs-built_in">cat</span> /proc/modules<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3
@@ -812,8 +840,8 @@ id="除dns外还可以通过什么方式进行域名解析缺点">除DNS外，�
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/9acacb00.html" title="Kubernetes">
-                        <span class="hidden-mobile">Kubernetes</span>
+                      <a href="/posts/fcc6c73f.html" title="Kubernetes应用">
+                        <span class="hidden-mobile">Kubernetes应用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

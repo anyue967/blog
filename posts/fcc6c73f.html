@@ -1,0 +1,930 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/icon.jpg">
+  <link rel="icon" href="/img/bg/icon.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="anyu967">
+  <meta name="keywords" content="web,web前端,js,javascript,Devops,linux">
+  
+    <meta name="description" content="2019-07-26-Kubernetes应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes应用">
+<meta property="og:url" content="https://anyu967.github.io/posts/fcc6c73f.html">
+<meta property="og:site_name" content="旅行の梦">
+<meta property="og:description" content="2019-07-26-Kubernetes应用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://anyu967.github.io/img/bg/007.jpg">
+<meta property="article:published_time" content="2019-07-26T02:06:54.000Z">
+<meta property="article:modified_time" content="2026-04-24T10:13:59.026Z">
+<meta property="article:author" content="anyu967">
+<meta property="article:tag" content="container">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="k8s">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://anyu967.github.io/img/bg/007.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Kubernetes应用 - 旅行の梦</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/macpanel.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"anyu967.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="旅行の梦" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>旅行の梦</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark"></i>
+                <span>收藏</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bookmark/" target="_self">
+                    <i class="iconfont icon-map"></i>
+                    <span>导航</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/gallery/" target="_self">
+                    <i class="iconfont icon-image"></i>
+                    <span>图库</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/video/" target="_self">
+                    <i class="iconfont icon-snapchat-fill"></i>
+                    <span>影视</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg/004.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Kubernetes应用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-07-26 10:06" pubdate>
+          2019年7月26日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Kubernetes应用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>2019-07-26-Kubernetes应用 <span id="more"></span>
+<!-- markdownlint-disable MD041 MD002--></p>
+<h1 id="应用">应用</h1>
+<h2 id="安装metrics-server-监控">1. 安装metrics-server 监控</h2>
+<h3 id="介绍">1.1 介绍</h3>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/metrics-server">metrics-server</a>
+是一个用于收集 Kubernetes 集群中节点和容器指标的组件。它通过 API
+服务器提供节点和容器的指标数据，包括 CPU、内存、磁盘和网络使用情况。</p>
+</blockquote>
+<h3 id="安装步骤">1.2 安装步骤</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 下载</span><br>wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml -O metrics-server.yaml<br><br><span class="hljs-comment"># 加参数(kubeadm 集群必须加 --kubelet-insecure-tls)</span><br>sed -i <span class="hljs-string">&#x27;/- args:/a\        - --kubelet-insecure-tls&#x27;</span> metrics-server.yaml<br><br><span class="hljs-comment"># 换国内镜像</span><br>sed -i <span class="hljs-string">&#x27;s#registry.k8s.io/metrics-server#docker.m.daocloud.io/rancher/mirrored-metrics-server#g&#x27;</span> metrics-server.yaml<br><br><span class="hljs-comment"># 降低它自己的资源</span><br>sed -i <span class="hljs-string">&#x27;s#memory: 200Mi#memory: 80Mi#g&#x27;</span> metrics-server.yaml<br><br><span class="hljs-comment"># 部署</span><br>kubectl apply -f metrics-server.yaml<br><br><span class="hljs-comment"># 等 1-2 分钟后用</span><br>kubectl top nodes<br>kubectl top pods -A --sort-by=memory<br></code></pre></td></tr></table></figure>
+<h3 id="验证">1.3 验证</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1. 看整体内存</span><br>free -h<br><span class="hljs-comment"># available 应该 &gt; 300M</span><br><br><span class="hljs-comment"># 2. 看 Pod 内存(需要先装 metrics-server)</span><br>kubectl top pods -A --sort-by=memory<br><span class="hljs-comment"># 所有 Pod 应该都在 limits 以下</span><br><br><span class="hljs-comment"># 3. 看组件状态</span><br>kubectl get pods -A<br><span class="hljs-comment"># 全部 Running,没有 CrashLoopBackOff</span><br><br><span class="hljs-comment"># 4. 模拟压力</span><br>kubectl create deployment stress --image=nginx:alpine<br>kubectl scale deployment stress --replicas=10<br><span class="hljs-built_in">sleep</span> 60<br>kubectl get pods<br><span class="hljs-comment"># 如果 master 没卡死、Pod 能正常调度到 worker,说明稳</span><br><br><span class="hljs-comment"># 清理</span><br>kubectl delete deployment stress<br></code></pre></td></tr></table></figure>
+<h2 id="prometheus-grafana-完整教程">2. Prometheus + Grafana
+完整教程</h2>
+<h3 id="介绍-1">2.1 介绍</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://prometheus.io/">prometheus</a>
+是一个监控系统和时间序列数据库。它通过一个 HTTP API
+接口暴露指标数据，支持通过一个查询语言（PromQL）来查询和处理指标数据。
+它的架构包括一个主节点（Prometheus 服务器）和多个从节点（Prometheus
+从节点）。主节点负责接收、存储和查询指标数据，从节点负责采集指标数据并将其发送到主节点。
+它的架构允许在集群中部署多个从节点，以实现高可用和可扩展性。</p>
+<p><a target="_blank" rel="noopener" href="https://grafana.com/">grafana</a>
+是一个开源的监控和分析平台。它提供了一个用户友好的界面，用于可视化指标数据和创建自定义的监控仪表板。
+它支持从多个数据源（包括
+Prometheus）获取指标数据，并提供丰富的可视化图表和警报功能。
+它的架构包括一个主节点（Grafana 服务器）和多个从节点（Grafana
+从节点）。主节点负责接收、存储和查询指标数据，从节点负责将指标数据发送到主节点。
+它的架构允许在集群中部署多个从节点，以实现高可用和可扩展性。</p>
+</blockquote>
+<h3 id="安装步骤-1">2.2 安装步骤</h3>
+<table style="width:100%;">
+
+<thead>
+<tr>
+<th>方案</th>
+<th>特点</th>
+<th>资源占用</th>
+<th>推荐度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>kube-prometheus-stack</strong> (Helm)</td>
+<td>一套全家桶,含 Prometheus Operator、Grafana、各种
+exporter、告警规则</td>
+<td>1.5G+</td>
+<td>⭐⭐⭐(功能全但重)</td>
+</tr>
+<tr>
+<td><strong>单独装 Prometheus + Grafana</strong></td>
+<td>按需组合,轻量</td>
+<td>500-800M</td>
+<td>⭐⭐⭐⭐⭐(推荐使用,资源紧张)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="前置步骤">2.2.1 前置步骤</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1. 给 worker 节点打标签</span><br>kubectl label nodes node01 workload=apps --overwrite<br>kubectl label nodes node02 workload=apps --overwrite<br><br><span class="hljs-comment"># 验证</span><br>kubectl get nodes --show-labels | grep workload<br><br><span class="hljs-comment"># 2. 安装 Helm</span><br>curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash<br><br><span class="hljs-comment"># 验证</span><br>helm version<br><br><span class="hljs-comment"># 3. 创建命名空间</span><br>kubectl create namespace monitoring<br></code></pre></td></tr></table></figure>
+<h4 id="安装-kube-prometheus-stack">2.2.2 安装 <a
+target="_blank" rel="noopener" href="https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack">kube-prometheus-stack</a></h4>
+<h5 id="方案一-安装-kube-prometheus-stack">2.2.2.1 方案一: 安装
+kube-prometheus-stack</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">helm install kube-prometheus-stack kube-prometheus-stack --namespace monitoring --create-namespace<br></code></pre></td></tr></table></figure>
+<h5 id="方案二-安装-prometheus-grafana">2.2.2.2 方案二: 安装 Prometheus
++ Grafana</h5>
+<h5 id="安装prometheus"><strong>安装Prometheus</strong></h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 添加 Prometheus Helm 仓库</span><br>helm repo add prometheus-community https://prometheus-community.github.io/helm-charts<br>helm repo update<br><br><span class="hljs-comment"># 安装 Prometheus</span><br>helm install prometheus prometheus-community/prometheus \<br>  -f prometheus-values.yaml \<br>  -n monitoring<br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># 模拟创建（语法+结构检查）</span><br><span class="hljs-comment"># yamllint prometheus-values.yaml</span><br><span class="hljs-comment"># kubectl apply --dry-run=client -f prometheus-values.yaml</span><br><br><span class="hljs-string">cat</span> <span class="hljs-string">&gt;</span> <span class="hljs-string">prometheus-values.yaml</span> <span class="hljs-string">&lt;&lt;EOF</span><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-comment"># Prometheus Server</span><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-comment"># 调度到 worker</span><br>  <span class="hljs-attr">nodeSelector:</span><br>    <span class="hljs-attr">workload:</span> <span class="hljs-string">apps</span><br>  <br>  <span class="hljs-comment"># 资源限制(针对 2G worker)</span><br>  <span class="hljs-attr">resources:</span><br>    <span class="hljs-attr">requests:</span><br>      <span class="hljs-attr">memory:</span> <span class="hljs-string">256Mi</span><br>      <span class="hljs-attr">cpu:</span> <span class="hljs-string">100m</span><br>    <span class="hljs-attr">limits:</span><br>      <span class="hljs-attr">memory:</span> <span class="hljs-string">512Mi</span><br>      <span class="hljs-attr">cpu:</span> <span class="hljs-string">500m</span><br>  <br>  <span class="hljs-comment"># 数据保留时间(默认 15 天,缩短到 7 天省内存和磁盘)</span><br>  <span class="hljs-attr">retention:</span> <span class="hljs-string">&quot;7d&quot;</span><br>  <br>  <span class="hljs-comment"># 持久化存储(如果没有 StorageClass 先用 emptyDir)</span><br>  <span class="hljs-attr">persistentVolume:</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span>              <span class="hljs-comment"># 学习环境,不用 PV 简单</span><br>    <span class="hljs-comment"># 想持久化改成 true,并指定 storageClass</span><br>  <br>  <span class="hljs-comment"># 对外暴露(NodePort 方便访问)</span><br>  <span class="hljs-attr">service:</span><br>    <span class="hljs-attr">type:</span> <span class="hljs-string">NodePort</span><br>    <span class="hljs-attr">nodePort:</span> <span class="hljs-number">30090</span><br><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-comment"># Alertmanager(学习环境关掉省内存)</span><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-attr">alertmanager:</span><br>  <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span><br><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-comment"># Pushgateway(用不到,关掉)</span><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-attr">prometheus-pushgateway:</span><br>  <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span><br><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-comment"># Node Exporter(每个节点一个 DaemonSet,跑在所有节点监控机器)</span><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-attr">prometheus-node-exporter:</span><br>  <span class="hljs-comment"># node-exporter 必须在每个节点上,不能只跑 worker</span><br>  <span class="hljs-comment"># 它就是轻量级的,10M 内存</span><br>  <span class="hljs-attr">resources:</span><br>    <span class="hljs-attr">requests:</span><br>      <span class="hljs-attr">memory:</span> <span class="hljs-string">32Mi</span><br>      <span class="hljs-attr">cpu:</span> <span class="hljs-string">50m</span><br>    <span class="hljs-attr">limits:</span><br>      <span class="hljs-attr">memory:</span> <span class="hljs-string">64Mi</span><br>      <span class="hljs-attr">cpu:</span> <span class="hljs-string">100m</span><br><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-comment"># Kube-state-metrics(监控 k8s 对象状态)</span><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-attr">kube-state-metrics:</span><br>  <span class="hljs-attr">nodeSelector:</span><br>    <span class="hljs-attr">workload:</span> <span class="hljs-string">apps</span><br>  <span class="hljs-attr">resources:</span><br>    <span class="hljs-attr">requests:</span><br>      <span class="hljs-attr">memory:</span> <span class="hljs-string">64Mi</span><br>      <span class="hljs-attr">cpu:</span> <span class="hljs-string">50m</span><br>    <span class="hljs-attr">limits:</span><br>      <span class="hljs-attr">memory:</span> <span class="hljs-string">128Mi</span><br>      <span class="hljs-attr">cpu:</span> <span class="hljs-string">200m</span><br><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-comment"># 配置文件 reload 工具</span><br><span class="hljs-comment"># ==========================================</span><br><span class="hljs-attr">configmapReload:</span><br>  <span class="hljs-attr">prometheus:</span><br>    <span class="hljs-attr">nodeSelector:</span><br>      <span class="hljs-attr">workload:</span> <span class="hljs-string">apps</span><br><span class="hljs-string">EOF</span><br></code></pre></td></tr></table></figure>
+<h5 id="验证prometheus">验证Prometheus</h5>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">[root@master01 <span class="hljs-literal">monitor</span>]<span class="hljs-comment"># kubectl get pods -n monitoring</span><br>NAME                                             READY   STATUS    RESTARTS   AGE<br>prometheus-kube-state-metrics-<span class="hljs-number">6</span>d7d7d9b78-f6rl9   <span class="hljs-number">1</span>/<span class="hljs-number">1</span>     Running   <span class="hljs-number">0</span>          <span class="hljs-number">2m</span>40s<br>prometheus-prometheus-<span class="hljs-keyword">node</span><span class="hljs-title">-exporter-25knx</span>        <span class="hljs-number">1</span>/<span class="hljs-number">1</span>     Running   <span class="hljs-number">0</span>          <span class="hljs-number">21m</span><br>prometheus-prometheus-<span class="hljs-keyword">node</span><span class="hljs-title">-exporter-lmvpp</span>        <span class="hljs-number">1</span>/<span class="hljs-number">1</span>     Running   <span class="hljs-number">0</span>          <span class="hljs-number">21m</span><br>prometheus-prometheus-<span class="hljs-keyword">node</span><span class="hljs-title">-exporter-ndqqw</span>        <span class="hljs-number">1</span>/<span class="hljs-number">1</span>     Running   <span class="hljs-number">0</span>          <span class="hljs-number">21m</span><br>prometheus-server-<span class="hljs-number">59</span>d754bf78-hbwk8               <span class="hljs-number">2</span>/<span class="hljs-number">2</span>     Running   <span class="hljs-number">0</span>          <span class="hljs-number">21m</span><br><br><span class="hljs-comment"># 访问 Prometheus: http://任意节点IP:30090</span><br><span class="hljs-comment"># Status → Targets:看所有监控目标,都应该是 UP</span><br><span class="hljs-comment"># Graph → 试试查询 up,看有数据</span><br></code></pre></td></tr></table></figure>
+<h5 id="安装-grafana"><strong>安装 Grafana</strong></h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 添加 Grafana Helm 仓库</span><br>helm repo add grafana https://grafana.github.io/helm-charts<br>helm repo update<br><br><span class="hljs-comment"># 安装 Grafana</span><br>helm install grafana grafana/grafana \<br>  -f grafana-values.yaml \<br>  -n monitoring<br><br><span class="hljs-comment"># 直接手动下载 chart 并安装</span><br>helm pull grafana/grafana --version 10.5.15<br>helm install grafana ./grafana-10.5.15.tgz \<br>   -f grafana-values.yaml <br>   -n monitoring<br><br><span class="hljs-comment"># 查看 Grafana Pod 状态</span><br>kubectl get pods -n monitoring -l app.kubernetes.io/name=grafana<br><br><span class="hljs-comment"># 看密码(如果不是自己设的)</span><br>kubectl get secret grafana -n monitoring -o jsonpath=<span class="hljs-string">&#x27;&#123;.data.admin-password&#125;&#x27;</span> | <span class="hljs-built_in">base64</span> -d<br><span class="hljs-built_in">echo</span><br><br><span class="hljs-comment"># 访问 Grafana: http://任意节点IP:30030</span><br><span class="hljs-comment"># 登录账号密码: admin/admin123</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># 定义 Grafana 配置</span><br><span class="hljs-string">cat</span> <span class="hljs-string">&gt;</span> <span class="hljs-string">grafana-values.yaml</span> <span class="hljs-string">&lt;&lt;&#x27;EOF&#x27;</span><br><span class="hljs-comment"># 调度到 worker</span><br><span class="hljs-attr">nodeSelector:</span><br>  <span class="hljs-attr">workload:</span> <span class="hljs-string">apps</span><br><br><span class="hljs-comment"># 资源限制</span><br><span class="hljs-attr">resources:</span><br>  <span class="hljs-attr">requests:</span><br>    <span class="hljs-attr">memory:</span> <span class="hljs-string">150Mi</span><br>    <span class="hljs-attr">cpu:</span> <span class="hljs-string">50m</span><br>  <span class="hljs-attr">limits:</span><br>    <span class="hljs-attr">memory:</span> <span class="hljs-string">400Mi</span><br>    <span class="hljs-attr">cpu:</span> <span class="hljs-string">300m</span><br><br><span class="hljs-comment"># 持久化(学习环境不用)</span><br><span class="hljs-attr">persistence:</span><br>  <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span><br><br><span class="hljs-comment"># 管理员密码(默认是随机的,设置成自己的)</span><br><span class="hljs-attr">adminPassword:</span> <span class="hljs-string">admin123</span><br><br><span class="hljs-comment"># 对外暴露</span><br><span class="hljs-attr">service:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">NodePort</span><br>  <span class="hljs-attr">nodePort:</span> <span class="hljs-number">30030</span><br><br><span class="hljs-comment"># 预配置 Prometheus 作为数据源</span><br><span class="hljs-attr">datasources:</span><br>  <span class="hljs-attr">datasources.yaml:</span><br>    <span class="hljs-attr">apiVersion:</span> <span class="hljs-number">1</span><br>    <span class="hljs-attr">datasources:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Prometheus</span><br>      <span class="hljs-attr">type:</span> <span class="hljs-string">prometheus</span><br>      <span class="hljs-attr">url:</span> <span class="hljs-string">http://prometheus-server.monitoring.svc.cluster.local</span><br>      <span class="hljs-attr">access:</span> <span class="hljs-string">proxy</span><br>      <span class="hljs-attr">isDefault:</span> <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 预装一些常用 Dashboard(从 grafana.com 导入)</span><br><span class="hljs-attr">dashboardProviders:</span><br>  <span class="hljs-attr">dashboardproviders.yaml:</span><br>    <span class="hljs-attr">apiVersion:</span> <span class="hljs-number">1</span><br>    <span class="hljs-attr">providers:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&#x27;default&#x27;</span><br>      <span class="hljs-attr">orgId:</span> <span class="hljs-number">1</span><br>      <span class="hljs-attr">folder:</span> <span class="hljs-string">&#x27;&#x27;</span><br>      <span class="hljs-attr">type:</span> <span class="hljs-string">file</span><br>      <span class="hljs-attr">disableDeletion:</span> <span class="hljs-literal">false</span><br>      <span class="hljs-attr">editable:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">options:</span><br>        <span class="hljs-attr">path:</span> <span class="hljs-string">/var/lib/grafana/dashboards/default</span><br><br><span class="hljs-attr">dashboards:</span><br>  <span class="hljs-attr">default:</span><br>    <span class="hljs-comment"># Kubernetes 集群监控(ID: 7249)</span><br>    <span class="hljs-attr">k8s-cluster:</span><br>      <span class="hljs-attr">gnetId:</span> <span class="hljs-number">7249</span><br>      <span class="hljs-attr">revision:</span> <span class="hljs-number">1</span><br>      <span class="hljs-attr">datasource:</span> <span class="hljs-string">Prometheus</span><br>    <br>    <span class="hljs-comment"># Node Exporter Full(ID: 1860)</span><br>    <span class="hljs-attr">node-exporter:</span><br>      <span class="hljs-attr">gnetId:</span> <span class="hljs-number">1860</span><br>      <span class="hljs-attr">revision:</span> <span class="hljs-number">37</span><br>      <span class="hljs-attr">datasource:</span> <span class="hljs-string">Prometheus</span><br>    <br>    <span class="hljs-comment"># Kubernetes Pod(ID: 6417)</span><br>    <span class="hljs-attr">k8s-pods:</span><br>      <span class="hljs-attr">gnetId:</span> <span class="hljs-number">6417</span><br>      <span class="hljs-attr">revision:</span> <span class="hljs-number">1</span><br>      <span class="hljs-attr">datasource:</span> <span class="hljs-string">Prometheus</span><br><span class="hljs-string">EOF</span><br></code></pre></td></tr></table></figure>
+<h3 id="问题解决">2.3 问题解决</h3>
+<h4 id="问题描述">2.3.1 问题描述</h4>
+<h4 id="镜像拉取失败">镜像拉取失败</h4>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># 查看所有镜像拉取失败的 Pod</span><br>[root@master01 monitor]# kubectl <span class="hljs-built_in">get</span> pods -n monitoring<br>NAME                                             READY   STATUS             RESTARTS   AGE<br>prometheus-kube-state-metrics-5579fcf48f-g7xss   0/1     ErrImagePull       0          17s<br>prometheus-kube-state-metrics-6856dd4f55-dnhld   0/1     ImagePullBackOff   0          16m<br><br><span class="hljs-comment"># 查 Deployment 里定义的镜像</span><br>kubectl <span class="hljs-built_in">get</span> deploy -n monitoring prometheus-kube-state-metrics -o <span class="hljs-attribute">jsonpath</span>=<span class="hljs-string">&#x27;&#123;.spec.template.spec.containers[0].image&#125;&#x27;</span><br><br><span class="hljs-comment"># 查看镜像拉取失败的原因</span><br>[root@master01 monitor]# kubectl describe pod -n monitoring prometheus-kube-state-metrics-5579fcf48f-g7xss<br>Events:<br> <span class="hljs-built_in"> Type </span>    Reason     Age                  <span class="hljs-keyword">From</span>               Message<br>  ----     ------     ----                 ----               -------<br>  Normal   Scheduled  11m                  default-scheduler  Successfully assigned monitoring/prometheus-kube-state-metrics-6856dd4f55-dnhld <span class="hljs-keyword">to</span> node02<br>  <span class="hljs-built_in">Warning</span>  Failed     9m53s (x2 over 10m)  kubelet            Failed <span class="hljs-keyword">to</span> pull image <span class="hljs-string">&quot;registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.18.0&quot;</span>: failed <span class="hljs-keyword">to</span> pull <span class="hljs-keyword">and</span> unpack image <span class="hljs-string">&quot;registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.18.0&quot;</span>: failed <span class="hljs-keyword">to</span> resolve reference <span class="hljs-string">&quot;registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.18.0&quot;</span>: failed <span class="hljs-keyword">to</span> <span class="hljs-keyword">do</span> request: Head <span class="hljs-string">&quot;https://europe-west4-docker.pkg.dev/v2/k8s-artifacts-prod/images/kube-state-metrics/kube-state-metrics/manifests/v2.18.0&quot;</span>: dial tcp 74.125.20.82:443: connect:<span class="hljs-built_in"> connection </span>refused<br><br><span class="hljs-comment"># [DaoCloud](https://github.com/DaoCloud/public-image-mirror) 提供的镜像加速服务</span><br>[root@master01 monitor]# kubectl <span class="hljs-built_in">set</span> image deployment/prometheus-kube-state-metrics -n monitoring   <span class="hljs-attribute">kube-state-metrics</span>=k8s.m.daocloud.io/kube-state-metrics/kube-state-metrics:v2.18.0<br></code></pre></td></tr></table></figure>
+<h2 id="待续">3. 待续</h2>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="category-chain-item">云原生</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/docker/" class="print-no-link">#docker</a>
+      
+        <a href="/tags/k8s/" class="print-no-link">#k8s</a>
+      
+        <a href="/tags/container/" class="print-no-link">#container</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Kubernetes应用</div>
+      <div>https://anyu967.github.io/posts/fcc6c73f.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>anyu967</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年7月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/794381c6.html" title="review">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">review</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/9acacb00.html" title="Kubernetes搭建">
+                        <span class="hidden-mobile">Kubernetes搭建</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <a href="https://blog.kevinchu.top/atom.xml" target="_blank" rel="nofollow noopener"><i class="iconfont icon-rss"></i>RSS</a> <div style="font-size: 0.85rem"> <span>本网站由</span> <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow noopener" ><img src="/img/bg/upyun.png" srcset="/img/loading.gif" lazyload alt="upyun" width="55px" height="30px" style="fill: currentColor;"></a> <span>提供CDN加速/云存储服务<span> </div> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      陕ICP备2026004197号-1
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=61058102000324"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>陕公网安备61058102000324号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/starts.js"></script>
+<script src="/js/typing-effect.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

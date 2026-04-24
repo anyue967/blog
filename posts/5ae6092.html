@@ -26,19 +26,14 @@
 <meta property="og:site_name" content="旅行の梦">
 <meta property="og:description" content="2019-07-16-Docker">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://anyu967.github.io/posts/5ae6092/docker-logo.jpg">
-<meta property="og:image" content="https://anyu967.github.io/posts/5ae6092/Container.jpg">
-<meta property="og:image" content="https://anyu967.github.io/posts/5ae6092/dockerStr.jpg">
-<meta property="og:image" content="https://anyu967.github.io/posts/5ae6092/docker-command.jpg">
-<meta property="og:image" content="https://anyu967.github.io/posts/5ae6092/docker-swarm.jpg">
-<meta property="og:image" content="https://anyu967.github.io/posts/5ae6092/docker-service.jpg">
+<meta property="og:image" content="https://anyu967.github.io/img/bg/006.jpg">
 <meta property="article:published_time" content="2019-07-16T09:50:11.000Z">
-<meta property="article:modified_time" content="2026-02-22T05:33:39.771Z">
+<meta property="article:modified_time" content="2026-04-24T10:14:57.274Z">
 <meta property="article:author" content="anyu967">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="容器">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://anyu967.github.io/posts/5ae6092/docker-logo.jpg">
+<meta name="twitter:image" content="https://anyu967.github.io/img/bg/006.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -290,7 +285,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          3.3k 字
         
       </span>
     
@@ -301,7 +296,7 @@
         
         
         
-          27 分钟
+          28 分钟
         
       </span>
     
@@ -353,51 +348,112 @@
               <div class="markdown-body">
                 
                 <p>2019-07-16-Docker <span id="more"></span></p>
-<h2 id="docker">docker</h2>
+<ul>
+<li><a href="#1-docker">1. docker</a>
+<ul>
+<li><a href="#11-什么是docker">1.1. 什么是docker?</a></li>
+<li><a href="#12-虚拟化和容器有什么不同">1.2.
+虚拟化和容器有什么不同？</a></li>
+</ul></li>
+<li><a href="#2docker三个基本概念">2.docker三个基本概念：</a>
+<ul>
+<li><a href="#21docker-的安装">2.1.docker 的安装</a></li>
+<li><a href="#22-docker-的使用docker---help">2.2. docker
+的使用(<code>docker --help</code>)：</a>
+<ul>
+<li><a href="#221-management-commands">2.2.1. Management
+Commands</a></li>
+<li><a href="#222镜像管理docker-image">2.2.2.镜像管理(docker image):</a>
+<ul>
+<li><a
+href="#-docker-image-pull"><code>$ docker image pull</code></a></li>
+<li><a href="#-docker-image-ls"><code>$ docker image ls</code></a></li>
+</ul></li>
+<li><a href="#223-容器管理docker-container">2.2.3. 容器管理(docker
+container)</a>
+<ul>
+<li><a
+href="#docker-container-run"><code>docker container run</code></a></li>
+</ul></li>
+<li><a
+href="#docker将数据卷挂在至容器中三种方法实现">Docker将数据卷挂在至容器中三种方法实现:</a>
+<ul>
+<li><a
+href="#管理volumes-docker管理宿主机文件系统的一部分varlibdockervolumes">管理volumes:
+Docker管理宿主机文件系统的一部分(/var/lib/docker/volumes)</a></li>
+<li><a href="#清理数据卷">清理数据卷</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#镜像构建docker-builder">镜像构建(docker builder)</a></li>
+<li><a href="#搭建lnmp网站平台">搭建LNMP网站平台</a></li>
+<li><a href="#搭建私有镜像仓库">搭建私有镜像仓库:</a></li>
+<li><a href="#docker-hub-公共镜像仓库">Docker Hub 公共镜像仓库:</a></li>
+<li><a href="#企业级docker镜像仓库">企业级Docker镜像仓库:</a></li>
+<li><a href="#docker-三剑客">Docker 三剑客</a>
+<ul>
+<li><a href="#docker-compose">docker-compose:</a>
+<ul>
+<li><a href="#使用django">使用Django:</a></li>
+<li><a href="#构建wordpress">构建WordPress:</a></li>
+</ul></li>
+<li><a href="#构建elk">构建ELK</a></li>
+<li><a href="#docker-machine">Docker Machine</a></li>
+<li><a href="#docker-swarm">Docker Swarm:</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="docker">1. docker</h2>
 <img src="/posts/5ae6092/docker-logo.jpg" srcset="/img/loading.gif" lazyload class="" title="[docker-logo]">
-<h3 id="什么是docker">什么是docker?</h3>
+<h3 id="什么是docker">1.1. 什么是docker?</h3>
 <blockquote>
-<p><strong>Docker</strong>
-是一个<strong>开源</strong>的应用<strong>容器引擎</strong>，基于Go，Docker
+<p><strong>Docker</strong> 是一个<strong>开源</strong>的应用 <span
+style="color:rgb(255, 0, 255);"><strong>容器引擎</strong></span>，基于Go，Docker
 使用客户端-服务器 (C/S)
 架构模式，使用远程API来管理和创建Docker容器。Docker 容器通过 Docker
 镜像来创建。</p>
 </blockquote>
 <blockquote>
-<p>容器是解决从一个计算环境移动到另一个计算环境时如何使软件可靠运行的问题的解决方案。这可以是从开发人员的笔记本电脑到测试环境，从临时环境到生产，从数据中心的物理机器到私有云或公共云中的虚拟机。<br />
-一个容器包含了完整的运行时环境：一个应用、这个应用所需的全部依赖、类库、其他二进制文件、配置文件，它们统一被打入了一个包中。通过将应用平台和其依赖容器化，操作系统发行版本和其他基础环境造成的差异，都被抽象掉了。</p>
+<p>容器是解决从一个计算环境移动到另一个计算环境时如何使软件可靠运行的问题的解决方案。这可以是从开发人员的笔记本电脑到测试环境，从临时环境到生产，从数据中心的物理机器到私有云或公共云中的虚拟机。</p>
 </blockquote>
-<h3 id="虚拟化和容器有什么不同">虚拟化和容器有什么不同？</h3>
+<blockquote>
+<p>一个容器包含了完整的运行时环境：一个应用、这个应用所需的全部依赖、类库、其他二进制文件、配置文件，它们统一被打入了一个包中。通过将应用平台和其依赖容器化，操作系统发行版本和其他基础环境造成的差异，都被抽象掉了。</p>
+</blockquote>
+<h3 id="虚拟化和容器有什么不同">1.2. 虚拟化和容器有什么不同？</h3>
 <blockquote>
 <p>传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统，在该系统上再运行所需应用进程；而容器内的应用进程直接运行于宿主的内核，容器内没有自己的内核，而且也没有进行硬件虚拟。因此容器要比传统虚拟机更为轻便。</p>
 </blockquote>
 <img src="/posts/5ae6092/Container.jpg" srcset="/img/loading.gif" lazyload class="" title="[Container]">
-<h2 id="docker三个基本概念">docker三个基本概念：</h2>
+<h2 id="docker三个基本概念">2.docker三个基本概念：</h2>
 <ul>
-<li>镜像(image)：镜像采用<strong>分层存储
-UFS</strong>，并不是传统的ISO打包，实际上是由多层文件系统联合组成。镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变后一层上的任何改变只发生在自己这一层。因此每一层尽量只包含该层需要添加的东西，任何额外的东西应该在该层构建结束前清理掉。</li>
-<li>容器(container)：镜像（ Image ）和容器（ Container
-）的关系，就像是面向对象程序设计中的 <strong>类 和
+<li><span
+style="color:rgb(255, 0, 255);">镜像(image)</span>：镜像采用<strong>分层存储
+UFS</strong>，并不是传统的ISO打包， <span
+style="color:rgb(255, 0, 255);">实际上是由多层文件系统联合组成</span>。镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变后一层上的任何改变只发生在自己这一层。因此每一层尽量只包含该层需要添加的东西，任何额外的东西应该在该层构建结束前清理掉。</li>
+<li><span style="color:rgb(255, 0, 255);">容器(container)</span>：镜像（
+Image ）和容器（ Container ）的关系，就像是面向对象程序设计中的
+<strong>类 和
 实例</strong>一样，镜像是静态的定义，容器是镜像运行时的实体。<strong>容器可以被创建、启动、停止、删除、暂停等</strong>。<strong>容器的实质是进程</strong>，但与直接在宿主执行的进程不同，<strong>容器进程</strong>运行于属于自己的独立的
 <strong>命名空间</strong>。<br />
 </li>
-<li>仓库(repository)：Docker
+<li><span
+style="color:rgb(255, 0, 255);">仓库(repository)</span>：Docker
 仓库用来保存镜像，可以理解为代码控制中的代码仓库。分为公开与私有。<br />
 <img src="/posts/5ae6092/dockerStr.jpg" srcset="/img/loading.gif" lazyload class="" title="[dockerStr]"><br />
 <img src="/posts/5ae6092/docker-command.jpg" srcset="/img/loading.gif" lazyload class="" title="[docker-command]"></li>
 </ul>
-<h3 id="docker-的安装">docker 的安装</h3>
+<h3 id="docker-的安装">2.1.docker 的安装</h3>
 <p><strong><a
-target="_blank" rel="noopener" href="https://docs.docker.com/">docker官方文档</a></strong> +
-安装前卸载旧版本(centos7): <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">uname</span> -r<br>$ yum update<br>$ yum remove docker \<br>  docker-client \<br>  docker-client-latest \<br>  docker-common \<br>  docker-latest \<br>  docker-latest-logrotate \<br>  docker-logrotate \<br>  docker-engine<br></code></pre></td></tr></table></figure></p>
+target="_blank" rel="noopener" href="https://docs.docker.com/">docker官方文档</a></strong></p>
 <ul>
+<li><p>安装前卸载旧版本(centos7): <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">uname</span> -r<br>$ yum update<br>$ yum remove docker \<br>  docker-client \<br>  docker-client-latest \<br>  docker-common \<br>  docker-latest \<br>  docker-latest-logrotate \<br>  docker-logrotate \<br>  docker-engine<br></code></pre></td></tr></table></figure></p></li>
 <li><p>安装: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash"> $ yum install -y yum-utils \<br>  device-mapper-persistent-data \<br>  lvm2<br> <span class="hljs-comment"># 官方软件源</span><br> $ yum-config-manager --add-repo \ <br>https://download.docker.com/linux/centos/docker-ce.repo	<br> <br> <span class="hljs-comment"># 国内阿里软件源</span><br> $ yum-config-manager --add-repo \<br>http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo<br> <br> $ yum makecache fast<br> $ yum list docker-ce --showduplicates |<span class="hljs-built_in">sort</span> -r	<span class="hljs-comment"># 查看所有版本</span><br> $ yum -y install docker-ce<br> $ systemctl start docker<br> $ systemctl <span class="hljs-built_in">enable</span> docker<br> $ docker info	// docker version<br> $ docker run hello-world<br></code></pre></td></tr></table></figure></p></li>
 <li><p>安装前卸载旧版本(Ubuntu 18.04): <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">uname</span> -r<br>$ apt-get update<br>$ apt-get remove docker docker-engine docker.io<br></code></pre></td></tr></table></figure></p></li>
 <li><p>安装: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ apt-get install \<br> apt-transport-https \<br> ca-certificates \<br> software-properties-common \<br> curl<br>// 官方证书及软件源<br>$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | <span class="hljs-built_in">sudo</span> apt-key add -	<br>$ apt-key fingerprint 0EBFCD88	// 验证密钥<br>$ add-apt-repository \											<br> <span class="hljs-string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="hljs-string"> <span class="hljs-subst">$(lsb_release -cs)</span> \</span><br><span class="hljs-string"> stable&quot;</span><br> <br><span class="hljs-comment"># 国内证书及软件源(速度比较快)</span><br>$ curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | <span class="hljs-built_in">sudo</span> apt-key add -	<br>$ apt-key fingerprint 0EBFCD88<br>$ add-apt-repository \											<br> <span class="hljs-string">&quot;deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \</span><br><span class="hljs-string"> <span class="hljs-subst">$(lsb_release -cs)</span> \</span><br><span class="hljs-string"> stable&quot;</span><br> <br>$ apt-get update <br>$ apt-cache madison docker-ce	 <span class="hljs-comment"># 查找docker版本</span><br>$ apt-get install docker-ce <br><br>$ systemctl start docker<br>$ systemctl <span class="hljs-built_in">enable</span> docker<br>$ docker info				<span class="hljs-comment"># docker version</span><br>$ docker run hello-world<br></code></pre></td></tr></table></figure></p></li>
 <li><p>镜像加速(/etc/docker/daemon.json): <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;registry-mirrors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>        <span class="hljs-string">&quot;https://registry.docker-cn.com&quot;</span><br>        <span class="hljs-string">&quot;https://my5f0mvy.mirror.aliyuncs.com&quot;</span><br>  <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br>$ systemctl restart docker<br></code></pre></td></tr></table></figure></p></li>
 </ul>
-<h3 id="docker-的使用docker-help">docker 的使用(docker –help)：</h3>
-<h4 id="management-commands">Management Commands</h4>
+<h3 id="docker-的使用docker---help">2.2. docker
+的使用(<code>docker --help</code>)：</h3>
+<h4 id="management-commands">2.2.1. Management Commands</h4>
 <table>
 <thead>
 <tr>
@@ -468,7 +524,7 @@ target="_blank" rel="noopener" href="https://docs.docker.com/">docker官方文�
 </tr>
 </tbody>
 </table>
-<h4 id="镜像管理docker-image">镜像管理(docker image):</h4>
+<h4 id="镜像管理docker-image">2.2.2.镜像管理(docker image):</h4>
 <table>
 <thead>
 <tr>
@@ -531,11 +587,13 @@ target="_blank" rel="noopener" href="https://docs.docker.com/">docker官方文�
 </tr>
 </tbody>
 </table>
-<h5 id="docker-image-pull"><code>$ docker image pull</code></h5>
+<h6 id="docker-image-pull"><span
+style="color:rgb(255, 0, 255);"><code>$ docker image pull</code></span></h6>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker image pull ubuntu:16.04      <span class="hljs-comment"># 获取镜像</span><br>  16.04: Pulling from library/ubuntu<br>  bf5d46315322: Pull complete <br>  9f13e0ac480c: Pull complete<br>  e8988b5b3097: Pull complete<br>  40af181810e7: Pull complete<br>  e6f7c7e5c03e: Pull complete<br>  Digest:<br>  sha256:147913621d9cdea08853f6ba9116c2e27a3ceffecf3b492983ae97c3d643fbbe<br>  Status: Downloaded newer image <span class="hljs-keyword">for</span> ubuntu:16.04 <br></code></pre></td></tr></table></figure>
-<h5 id="docker-image-ls"><code>$ docker image ls</code></h5>
+<h6 id="docker-image-ls"><span
+style="color:rgb(255, 0, 255);"><code>$ docker image ls</code></span></h6>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">REPOSITORY      TAG     IMAGE ID        CREATED     SIZE<br>redis           latest  5f515359c7f8    5 days ago  183 MB<br>nginx           latest  05a60462f8ba    5 days ago  181 MB<br>&lt;none&gt;          &lt;none&gt;  00285df0df87    5 days ago  342 MB <span class="hljs-comment"># 虚悬镜像</span><br><br>$ docker image inspect nginx:1.12      <span class="hljs-comment"># 查看镜像信息</span><br>$ docker image <span class="hljs-built_in">rm</span> nginx:1.12<br>$ docker image <span class="hljs-built_in">ls</span> -f dangling=<span class="hljs-literal">true</span>     <span class="hljs-comment"># 查询虚悬镜像(filter)</span><br>$ docker image prune                   <span class="hljs-comment"># 删除虚悬镜像</span><br>$ docker image <span class="hljs-built_in">export</span> ID &gt; ID.tar      <span class="hljs-comment"># 导出容器</span><br></code></pre></td></tr></table></figure>
-<h4 id="容器管理docker-container">容器管理(docker container)</h4>
+<h4 id="容器管理docker-container">2.2.3. 容器管理(docker container)</h4>
 <table>
 <thead>
 <tr>
@@ -631,15 +689,15 @@ target="_blank" rel="noopener" href="https://docs.docker.com/">docker官方文�
 <td>本地端口映射至容器</td>
 </tr>
 <tr>
-<td style="text-align: left;">-P, –publish-all</td>
+<td style="text-align: left;"><code>-P</code>, –publish-all</td>
 <td>随机映射的端口到内部容器开放的网络端口</td>
 </tr>
 <tr>
-<td style="text-align: left;">–net</td>
+<td style="text-align: left;">--net</td>
 <td>网络配置</td>
 </tr>
 <tr>
-<td style="text-align: left;">–mount mount</td>
+<td style="text-align: left;">--mount mount</td>
 <td>挂载宿主机分区至容器</td>
 </tr>
 <tr>
@@ -647,48 +705,49 @@ target="_blank" rel="noopener" href="https://docs.docker.com/">docker官方文�
 <td>挂载宿主机目录至容器</td>
 </tr>
 <tr>
-<td style="text-align: left;">-a, –attach list</td>
+<td style="text-align: left;"><code>-a</code>, –attach list</td>
 <td>附加到运行的容器</td>
 </tr>
 <tr>
-<td style="text-align: left;">–dns list</td>
+<td style="text-align: left;">--dns list</td>
 <td>设置DNS</td>
 </tr>
 <tr>
-<td style="text-align: left;">-e, –env list</td>
+<td style="text-align: left;"><code>-e</code>, –env list</td>
 <td>设置环境变量</td>
 </tr>
 <tr>
-<td style="text-align: left;">–env-file list</td>
+<td style="text-align: left;">--env-file list</td>
 <td>从文件读取环境变量</td>
 </tr>
 <tr>
-<td style="text-align: left;">-h, –hostname=string</td>
+<td style="text-align: left;"><code>-h</code>, –hostname=string</td>
 <td>主机名</td>
 </tr>
 <tr>
-<td style="text-align: left;">–ip=string</td>
+<td style="text-align: left;">--ip=string</td>
 <td>设置IP</td>
 </tr>
 <tr>
-<td style="text-align: left;">–link list</td>
+<td style="text-align: left;">--link list</td>
 <td>添加链接到另一个容器</td>
 </tr>
 <tr>
-<td style="text-align: left;">–restart=string</td>
+<td style="text-align: left;">--restart=string</td>
 <td>重启</td>
 </tr>
 <tr>
-<td style="text-align: left;">–add-host list</td>
+<td style="text-align: left;">--add-host list</td>
 <td>添加其他主机到容器中</td>
 </tr>
 <tr>
-<td style="text-align: left;">–restart=always</td>
+<td style="text-align: left;">--restart=always</td>
 <td>始终会重启容器</td>
 </tr>
 </tbody>
 </table>
-<h5 id="docker-container-run"><code>docker container run</code></h5>
+<h6 id="docker-container-run"><span
+style="color:rgb(255, 0, 255);"><code>docker container run</code></span></h6>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker container run -itd --name Ubuntu \ <br>  ubuntu:16.04 \  	<span class="hljs-comment"># 指定容器版本</span><br>  bash  <br>$ root@e7009c6ce357:/# <span class="hljs-built_in">cat</span> /etc/os-release    <br>  NAME=<span class="hljs-string">&quot;Ubuntu&quot;</span><br>  VERSION=<span class="hljs-string">&quot;16.04.4 LTS, Trusty Tahr&quot;</span><br>  ID=ubuntu<br>  ID_LIKE=debian<br>  PRETTY_NAME=<span class="hljs-string">&quot;Ubuntu 16.04.4 LTS&quot;</span><br>  VERSION_ID=<span class="hljs-string">&quot;16.04&quot;</span><br>  HOME_URL=<span class="hljs-string">&quot;http://www.ubuntu.com/&quot;</span><br>  SUPPORT_URL=<span class="hljs-string">&quot;http://help.ubuntu.com/&quot;</span><br>  BUG_REPORT_URL=<span class="hljs-string">&quot;http://bugs.launchpad.net/ubuntu/&quot;</span><br></code></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker container start webserver<br>$ docker container <span class="hljs-built_in">exec</span> -it webserver bash<br>  root@ea4664298c21:/# <span class="hljs-built_in">ls</span><br>  bin   dev   etc   home    proc    sys   tmp<br>$ docker container run -itd -p 8080:80 --name nginx01 nginx  <span class="hljs-comment"># 宿主机8080映射到容器80端口</span><br>$ docker logs nginx01      <span class="hljs-comment"># 查看容器日志</span><br>$ docker container ps -l   <span class="hljs-comment"># 查看运行的容器</span><br></code></pre></td></tr></table></figure>
 <h4
@@ -797,8 +856,7 @@ Docker 的应用程序工具</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">version:</span> <span class="hljs-string">&quot;3&quot;</span><br><span class="hljs-attr">services:</span><br> <span class="hljs-attr">db:</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">postgres</span><br>  <span class="hljs-attr">web:</span><br>    <span class="hljs-attr">build:</span> <span class="hljs-string">.</span><br>    <span class="hljs-attr">command:</span> <span class="hljs-string">python3</span> <span class="hljs-string">manage.py</span> <span class="hljs-string">runserver</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><span class="hljs-string">:8000</span><br>    <span class="hljs-attr">volumes:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">.:/code</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8000:8000&quot;</span><br>    <span class="hljs-attr">links:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">db</span><br></code></pre></td></tr></table></figure></p></li>
 <li><p><code>$ docker-compose run web django-admin.py startproject django_example .</code></p>
 <ul>
-<li>替换django_example/settings.py的节点信息: <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs json">DATABASES = <span class="hljs-punctuation">&#123;</span><br>  &#x27;default&#x27;<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span>    <br>  &#x27;ENGINE&#x27;<span class="hljs-punctuation">:</span>     &#x27;django.db.backends.postgresql&#x27;<span class="hljs-punctuation">,</span>  <br>  &#x27;NAME&#x27;<span class="hljs-punctuation">:</span> &#x27;postgres&#x27;<span class="hljs-punctuation">,</span>  <br>  &#x27;USER&#x27;<span class="hljs-punctuation">:</span> &#x27;postgres&#x27;<span class="hljs-punctuation">,</span>  <br>  &#x27;HOST&#x27;<span class="hljs-punctuation">:</span> &#x27;db&#x27;<span class="hljs-punctuation">,</span>  <br>  &#x27;PORT&#x27;<span class="hljs-punctuation">:</span> <span class="hljs-number">5432</span><span class="hljs-punctuation">,</span>  <br>  <span class="hljs-punctuation">&#125;</span>  <br><span class="hljs-punctuation">&#125;</span><br>$ docker-compose up<br></code></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">  <br></code></pre></td></tr></table></figure></li>
+<li>替换django_example/settings.py的节点信息: <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs json">DATABASES = <span class="hljs-punctuation">&#123;</span><br>  &#x27;default&#x27;<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span>    <br>  &#x27;ENGINE&#x27;<span class="hljs-punctuation">:</span>     &#x27;django.db.backends.postgresql&#x27;<span class="hljs-punctuation">,</span>  <br>  &#x27;NAME&#x27;<span class="hljs-punctuation">:</span> &#x27;postgres&#x27;<span class="hljs-punctuation">,</span>  <br>  &#x27;USER&#x27;<span class="hljs-punctuation">:</span> &#x27;postgres&#x27;<span class="hljs-punctuation">,</span>  <br>  &#x27;HOST&#x27;<span class="hljs-punctuation">:</span> &#x27;db&#x27;<span class="hljs-punctuation">,</span>  <br>  &#x27;PORT&#x27;<span class="hljs-punctuation">:</span> <span class="hljs-number">5432</span><span class="hljs-punctuation">,</span>  <br>  <span class="hljs-punctuation">&#125;</span>  <br><span class="hljs-punctuation">&#125;</span><br>$ docker-compose up<br></code></pre></td></tr></table></figure></li>
 </ul></li>
 </ul>
 <h5 id="构建wordpress">构建WordPress:</h5>
@@ -869,7 +927,7 @@ Swarm集群可以有多个管理节点, 但仅只能有一个leader管理节点;
     
       <span class="category-chain">
         
-  <a href="/categories/docker/" class="category-chain-item">docker</a>
+  <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="category-chain-item">云原生</a>
   
   
 

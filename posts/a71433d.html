@@ -26,15 +26,13 @@
 <meta property="og:site_name" content="旅行の梦">
 <meta property="og:description" content="2019-08-28-Ansible">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://anyu967.github.io/posts/a71433d/ansible%E6%9E%B6%E6%9E%84.png">
-<meta property="og:image" content="https://anyu967.github.io/posts/a71433d/ansible%E5%8E%9F%E7%90%86.png">
+<meta property="og:image" content="https://anyu967.github.io/img/bg/004.jpg">
 <meta property="article:published_time" content="2019-08-28T01:22:57.000Z">
-<meta property="article:modified_time" content="2026-02-22T05:33:39.809Z">
+<meta property="article:modified_time" content="2026-04-24T10:17:06.280Z">
 <meta property="article:author" content="anyu967">
 <meta property="article:tag" content="Ansible">
-<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://anyu967.github.io/posts/a71433d/ansible%E6%9E%B6%E6%9E%84.png">
+<meta name="twitter:image" content="https://anyu967.github.io/img/bg/004.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -257,7 +255,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/bg/008.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -374,10 +372,9 @@
 <h2 id="架构与原理">架构与原理</h2>
 <blockquote>
 <p>ansible
-通过<code>ssh实现</code>配置管理、应用部署、任务执行等功能</p>
+通过<code>ssh实现</code>配置管理、应用部署、任务执行等功能<br />
+<img src="/posts/a71433d/ansible%E6%9E%B6%E6%9E%84.png" srcset="/img/loading.gif" lazyload class="" title="[ansible架构]"> <img src="/posts/a71433d/ansible%E5%8E%9F%E7%90%86.png" srcset="/img/loading.gif" lazyload class="" title="[ansible原理]"></p>
 </blockquote>
-<img src="/posts/a71433d/ansible%E6%9E%B6%E6%9E%84.png" srcset="/img/loading.gif" lazyload class="" title="[ansible架构]">
-<img src="/posts/a71433d/ansible%E5%8E%9F%E7%90%86.png" srcset="/img/loading.gif" lazyload class="" title="[ansible原理]">
 <h2 id="安装">安装:</h2>
 <h3 id="rpm-方式">RPM 方式</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mv</span> /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup<br><span class="hljs-built_in">mv</span> /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup<br>wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo<br><br>yum install ansible<br></code></pre></td></tr></table></figure>
@@ -632,7 +629,7 @@ id="synchronize目录文件同步基于rsync命令工具">8.synchronize(目录�
     
       <span class="category-chain">
         
-  <a href="/categories/Ansible/" class="category-chain-item">Ansible</a>
+  <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="category-chain-item">云原生</a>
   
   
 
@@ -646,8 +643,6 @@ id="synchronize目录文件同步基于rsync命令工具">8.synchronize(目录�
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
       
         <a href="/tags/Ansible/" class="print-no-link">#Ansible</a>
       
