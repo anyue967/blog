@@ -691,9 +691,9 @@
     
     <tags>
       
-      <tag>docker</tag>
-      
       <tag>dockerfile</tag>
+      
+      <tag>docker</tag>
       
       <tag>k8s</tag>
       
@@ -1073,9 +1073,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>vim</tag>
+      
+      <tag>linux</tag>
       
     </tags>
     
